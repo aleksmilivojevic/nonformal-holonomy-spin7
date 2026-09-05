@@ -1,0 +1,2974 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{array,booktabs,longtable}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\SpinSeven}{\operatorname{Spin}(7)}
+\newcommand{\Hol}{\operatorname{Hol}}
+\newcommand{\Fix}{\operatorname{Fix}}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\EH}{\mathrm{EH}}
+\newcommand{\T}{\mathbb T}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\RP}{\mathbb {RP}}
+\newcommand{\CP}{\mathbb {CP}}
+\newcommand{\PD}{\operatorname{PD}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\diag}{\operatorname{diag}}
+
+\title{A nonformal compact manifold with full holonomy $\SpinSeven$\\
+obtained from the Mart\'in--Merch\'an $G_2$ construction}
+\author{}\date{}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We start from the flat orbifold underlying the nonformal $G_2$ manifold of
+Mart\'in--Merch\'an and introduce an affine anti-$G_2$ involution whose
+translation term is a real quarter-period in the third elliptic coordinate.
+After adjoining a circle, we couple this involution to reflection in the
+circle; the resulting involution preserves the product Cayley form.  We
+compute the complete isotropy stratification of the resulting
+eight-orbifold.  In addition to codimension-four $A_1$ strata, it has
+codimension-six strata modelled on
+$\R^2\times(\C^3/\Z_2^2)$ and isolated strata modelled on
+$(\R^4/\{\pm1\})^2$; no isolated $\R^8/\{\pm1\}$ local model occurs.
+Explicit Eguchi--Hanson, toric crepant, and product models satisfy all of
+Joyce's $R$-data compatibility conditions and yield a compact torsion-free
+$\SpinSeven$ resolution.  On this resolution we construct a defined triple
+Massey product of degrees $(3,2,2)$ whose full Massey coset does not contain
+zero, and we prove that the resolution is simply connected.  The
+Berger--Simons--Wang classification then reduces every proper holonomy
+alternative to a K\"ahler case, which nonformality excludes.  Therefore the
+resulting metrics have full holonomy $\SpinSeven$.
+\end{abstract}
+
+All cohomology has real coefficients unless otherwise stated.  Products of
+transformations are composed from right to left.
+
+\section{Statement of the construction}
+We set
+\[
+E=\C/(\Z+\ii\Z),\qquad \T^7=(\R/4\Z)_t\times E^3,
+\]
+and write $z_j=x_j+\ii y_j$.  We define
+\begin{align}
+F(t,z_1,z_2,z_3)&=(t+1,\ii z_1,\ii z_2,-z_3),\label{eq:F}\\
+\iota _1(t,z_1,z_2,z_3)&=(t,-z_1,-z_2,z_3+\tfrac12),\label{eq:i1}\\
+\iota _2(t,z_1,z_2,z_3)&=(t,-z_1,-z_2,z_3+\tfrac{\ii}{2}),\label{eq:i2}\\
+\kappa(t,z_1,z_2,z_3)&=(1-t,\bar z_1,\bar z_2,\bar z_3).\label{eq:kappa}
+\end{align}
+They preserve
+\begin{equation}\label{eq:g2form}
+\varphi=dt\wedge\omega+\operatorname{Re}\Theta,
+\qquad \omega=\sum_{j=1}^3dx_j\wedge dy_j,
+\qquad \Theta=dz_1\wedge dz_2\wedge dz_3.
+\end{equation}
+The group $G=\langle F,\iota _1,\iota _2,\kappa\rangle
+\cong D_4\times\Z_2^2$ has order $32$, and $X=\T^7/G$ is the flat $G_2$
+orbifold of \cite{MM}.
+
+We define the additional affine involution
+\begin{equation}\label{eq:tau}
+\tau(t,z_1,z_2,z_3)=(1-t,z_1,z_2,-z_3+\tfrac14).
+\end{equation}
+The translation term $1/4$ in the third complex coordinate is one quarter
+of the real period of $E$.  We set $S^1_s=\R/\Z$ and define
+\begin{equation}\label{eq:cayley-product}
+\Phi_0=ds\wedge\varphi+*_{\varphi}\varphi
+\quad\text{on}\quad \T^8=S^1_s\times\T^7.
+\end{equation}
+We extend $G$ trivially in the $s$-direction and define
+\begin{equation}\label{eq:T-def}
+T(s,p)=(-s,\tau p),\qquad K=\langle G,T\rangle,
+\qquad \mathcal O=\T^8/K.
+\end{equation}
+
+\begin{theorem}\label{thm:main}
+There exist a compact smooth eight-manifold $\widehat Z$, a proper map
+$\pi:\widehat Z\to\mathcal O$ that is a diffeomorphism over the regular
+locus, and a number $\varepsilon>0$ such that, for every
+$t\in(0,\varepsilon)$, $\widehat Z$ carries a torsion-free $\SpinSeven$
+structure $\widehat\Phi_t$ whose associated metric has full holonomy
+$\SpinSeven$.  Moreover, $\pi_1(\widehat Z)=0$ and $\widehat Z$ is
+nonformal.
+\end{theorem}
+
+\begin{remark}\label{rem:not-product}
+The product $S^1\times M$ of the Mart\'in--Merch\'an manifold with a circle
+has a torsion-free $\SpinSeven$ form, but the product metric has holonomy
+contained in $G_2$ because its circle vector field is parallel.  The
+construction instead couples the reflection $s\mapsto-s$ with the
+involution $\tau$, which reverses the $G_2$ form.  Section~5 proves that the
+resulting resolution is nonformal.  Section~6 proves that it is simply
+connected and then applies the de~Rham and Berger--Simons--Wang
+classifications to show that the holonomy of each sufficiently small
+torsion-free structure is exactly $\SpinSeven$.
+\end{remark}
+
+\section{The affine group and its fixed sets}
+\subsection{Normalization and the Cayley form}
+
+\begin{lemma}\label{lem:normalization}
+The map $\tau$ normalizes $G$, with
+\begin{equation}\label{eq:tau-relations}
+\tau^2=1,\quad \tau F\tau=F^{-1}\iota _1,\quad
+\tau\iota_j\tau=\iota_j\ (j=1,2),\quad \tau\kappa\tau=\kappa.
+\end{equation}
+Moreover,
+\begin{equation}\label{eq:tau-forms}
+\tau^*\varphi=-\varphi,\qquad
+\tau^*(*_{\varphi}\varphi)=*_{\varphi}\varphi.
+\end{equation}
+Consequently, $|K|=64$ and every element of $K$ preserves $\Phi_0$.
+\end{lemma}
+\begin{proof}
+Substituting the formulas \eqref{eq:F}--\eqref{eq:kappa} and
+\eqref{eq:tau} into each composite gives all four relations in
+\eqref{eq:tau-relations}.  The derivative of $\tau$ sends $dt$ and $dz_3$
+to their negatives and fixes $dz_1,dz_2$; hence it preserves every summand
+of $\omega$ and sends $\Theta$ to $-\Theta$.  This proves the first equation in
+\eqref{eq:tau-forms}; the second follows from
+$*\varphi=\frac12\omega^2-dt\wedge\operatorname{Im}\Theta$.  Since
+$T^*ds=-ds$, one has $T^*\Phi_0=\Phi_0$.  Finally $T\notin G$ and normalizes
+$G$, so $|K|=64$.
+\end{proof}
+
+\subsection{The coset \texorpdfstring{$GT$}{GT}}
+We set $\bar t=t/4$ and use the coordinates
+\begin{equation}\label{eq:seven-coordinates}
+q=(\bar t,x_1,y_1,x_2,y_2,x_3,y_3)\in(\R/\Z)^7.
+\end{equation}
+For $q\mapsto Aq+v$, the fixed equation is
+\begin{equation}\label{eq:fixed-equation}(A-I)q=-v\pmod{\Z^7}.\end{equation}
+
+\begin{lemma}\label{lem:torus-congruence}
+Let $M\in M_{m\times n}(\Z)$ and $y\in\R^m$.  The congruence
+\[
+ Mx=y\pmod{\Z^m},\qquad x\in\R^n/\Z^n,
+\]
+is solvable if and only if
+\begin{equation}\label{eq:left-kernel-test}
+ \lambda^Ty\in\Z
+ \quad\text{for every }\lambda\in\ker(M^T)\cap\Z^m.
+\end{equation}
+If it is solvable and the nonzero Smith invariant factors of $M$ are
+$d_1,\ldots,d_r$, then its solution set has dimension $n-r$ and has
+$d_1\cdots d_r$ connected components.
+\end{lemma}
+\begin{proof}
+Choose unimodular matrices $U\in\operatorname{GL}(m,\Z)$ and
+$V\in\operatorname{GL}(n,\Z)$ such that
+\[
+ UMV=\operatorname{diag}(d_1,\ldots,d_r,0,\ldots,0),
+ \qquad d_i>0.
+\]
+The induced coordinate changes are automorphisms of the source and target
+tori.  In these coordinates, the first $r$ equations are
+$d_ix_i=(Uy)_i$ in $\R/\Z$ and are always solvable, while the remaining
+equations require $(Uy)_i=0$ in $\R/\Z$ for $i>r$.  These conditions are
+precisely \eqref{eq:left-kernel-test}, because the last $m-r$ rows of $U$
+form an integral basis of $\ker(M^T)\cap\Z^m$.  Each of the first $r$
+equations has $d_i$ solutions, and the remaining $n-r$ source coordinates
+are free.  This gives the asserted dimension and number of components.
+\end{proof}
+
+Every $g\in G$ is uniquely $F^a\iota_1^b\iota_2^c\kappa^d$.  The complete
+list of $g\tau$ with fixed points is Table~\ref{tab:coset-fixed}; signs are
+in the coordinate order \eqref{eq:seven-coordinates}.  The $s$-coordinate
+of $gT$ has sign $-$, so adjoining it neither changes the displayed fixed
+dimension nor introduces an additional free coordinate.
+
+\pagebreak[4]
+\begin{longtable}{@{}c>{\raggedright\arraybackslash}p{.40\textwidth}c c@{}}
+\caption{Fixed elements in $G\tau$.}\label{tab:coset-fixed}\\
+\toprule $g\tau$&translation $v$&sign tuple&$\dim\Fix$\\\midrule\endfirsthead
+\toprule $g\tau$&translation $v$&sign tuple&$\dim\Fix$\\\midrule\endhead
+$\tau$&$(\frac14,0,0,0,0,\frac14,0)$&$(-,+,+,+,+,-,-)$&4\\
+$\iota_1\tau$&$(\frac14,0,0,0,0,\frac34,0)$&$(-,-,-,-,-,-,-)$&0\\
+$\iota_2\tau$&$(\frac14,0,0,0,0,\frac14,\frac12)$&$(-,-,-,-,-,-,-)$&0\\
+$\kappa\tau$&$(0,0,0,0,0,\frac14,0)$&$(+,+,-,+,-,-,+)$&4\\
+$\iota_1\kappa\tau$&$(0,0,0,0,0,\frac34,0)$&$(+,-,+,-,+,-,+)$&4\\
+$\iota_1\iota_2\tau$&$(\frac14,0,0,0,0,\frac34,\frac12)$&$(-,+,+,+,+,-,-)$&4\\
+$F^2\iota_1\iota_2\tau$&$(\frac34,0,0,0,0,\frac34,\frac12)$&$(-,-,-,-,-,-,-)$&0\\
+$F^2\iota_1\tau$&$(\frac34,0,0,0,0,\frac34,0)$&$(-,+,+,+,+,-,-)$&4\\
+$F^2\tau$&$(\frac34,0,0,0,0,\frac14,0)$&$(-,-,-,-,-,-,-)$&0\\
+$F^2\iota_2\tau$&$(\frac34,0,0,0,0,\frac14,\frac12)$&$(-,+,+,+,+,-,-)$&4\\
+\bottomrule
+\end{longtable}
+
+\begin{lemma}\label{lem:coset-exhaustive}
+Table~\ref{tab:coset-fixed} is exhaustive.  Fourteen nonidentity elements
+of $K$ have a four-dimensional fixed-point set on $\T^8$.  Four have a
+zero-dimensional fixed-point set.  Every remaining nonidentity element
+acts freely.
+\end{lemma}
+\begin{proof}
+We write $g=F^a\iota_1^b\iota_2^c\kappa^d$.  If $d=0$ and $a$ is odd, the
+$x_3$ equation is translation by an odd quarter-period.  If $d=0$ and $a$
+is even, all eight choices have fixed points; four have linear part $-I_7$
+and four have a four-dimensional fixed space, exactly as listed.  For
+$d=1$, solvability of the $\bar t$ equation forces $a=0$, and solvability
+of the $y_3$ equation then forces $c=0$; the only fixed elements in this
+case are $\kappa\tau$ and $\iota_1\kappa\tau$.  Thus six elements of
+$G\tau$ have four-dimensional fixed sets and four elements of $G\tau$ have
+zero-dimensional fixed sets.  The eight fixed elements of $G$ have
+three-dimensional fixed sets on $\T^7$, hence four-dimensional fixed sets
+after adjoining the fixed $s$-coordinate.  Therefore $K$ has fourteen
+nonidentity elements with four-dimensional fixed sets and four with
+zero-dimensional fixed sets.
+\end{proof}
+
+\subsection{The complete isotropy hierarchy}
+Each of the four elements of $G\tau$ whose fixed set is zero-dimensional
+has linear part $-I_7$; the corresponding element of $GT$ therefore has
+linear part $-I_8$ and fixes $2^8=256$ points of $\T^8$.  These four
+fixed-point sets are pairwise disjoint.  For the four new elements listed
+in the left column below, the right column lists the unique nonidentity
+element of $G$ that fixes the same points:
+\begin{equation}\label{eq:zero-old-stabilizer}
+\begin{array}{c|c}
+\iota_1T&\kappa\\ \iota_2T&\iota_2\kappa\\
+F^2\iota_1\iota_2T&F^2\iota_2\kappa\\ F^2T&F^2\kappa.
+\end{array}
+\end{equation}
+Proposition~\ref{prop:isotropy} shows that the resulting order-four groups
+are the full point stabilizers.  Every point orbit therefore has
+$64/4=16$ elements, and the $4\cdot256$ fixed points determine
+$1024/16=64$ isolated points in $\T^8/K$.
+
+Four subgroups have two-dimensional common fixed sets:
+\begin{align}
+A_0&=\langle\kappa,T\rangle,&
+A_1&=\langle\iota_2\kappa,\iota_1\iota_2T\rangle,\label{eq:A01}\\
+A_2&=\langle\kappa T,F^2\iota_2\kappa\rangle,&
+A_3&=\langle F^2\kappa,\iota_1\kappa T\rangle.\label{eq:A23}
+\end{align}
+Each common fixed set is a disjoint union of $64$ two-tori.  The subgroups
+form two $K$-conjugacy classes of size two.
+
+\begin{proposition}\label{prop:isotropy}
+For every $p\in\T^8$ with nontrivial stabilizer $K_p$, exactly one of the
+following three alternatives holds.  First, $K_p\cong\Z_2$ and acts as
+$(I_4,-I_4)$.  Second, $p$ lies on a two-dimensional stratum,
+$K_p\cong\Z_2^2$, and the three nonidentity elements act on the
+six-dimensional normal space by the nontrivial even sign changes; the
+local model is
+\begin{equation}\label{eq:SU3-local}\R^2\times\C^3/\Z_2^2.\end{equation}
+Third, $p$ is one of the $64$ isolated quotient points,
+$K_p\cong\Z_2^2$, and the local model is
+\begin{equation}\label{eq:product-local}
+(\R^4/\{\pm1\})\times(\R^4/\{\pm1\}).
+\end{equation}
+There are no larger stabilizers.
+\end{proposition}
+\begin{proof}
+For affine elements $h_\nu(q)=A_\nu q+v_\nu$, a common fixed point is a
+solution of the combined congruence
+\begin{equation}\label{eq:stacked}
+\begin{pmatrix}A_1-I\\\vdots\\A_r-I\end{pmatrix}q
+=-\begin{pmatrix}v_1\\\vdots\\v_r\end{pmatrix}\pmod{\Z^{8r}}.
+\end{equation}
+For each intersecting pair $(h_1,h_2)$, we record the fixed-dimension data
+\[
+\bigl(\dim\Fix h_1,\dim\Fix h_2,\dim\Fix(h_1h_2);
+      \dim(\Fix h_1\cap\Fix h_2)\bigr).
+\]
+Lemma~\ref{lem:torus-congruence} applies to the block matrix in
+\eqref{eq:stacked}.  Its criterion and Smith normal form give
+exactly twelve pairs with data $(4,4,4;2)$.  These pairs assemble three at
+a time into the four subgroups \eqref{eq:A01}--\eqref{eq:A23}.  For each
+subgroup, the Smith normal form has component group of order $64$, so its
+common fixed set lifts to $64$ two-tori.  Every other nonempty pairwise
+intersection belongs to one of the four order-four point stabilizers in
+\eqref{eq:zero-old-stabilizer}.  Repeating the calculation for triples
+yields no additional system: there are exactly four systems of type
+$(4,4,4)$ and four of type $(4,4,0)$.  Testing the remaining elements of
+$K$ on these solution sets shows that none fixes a point of any set, so no
+stabilizer is larger.
+
+At a two-dimensional stratum, the normal representation is the direct sum
+of the three nontrivial real characters of $\Z_2^2$, each with multiplicity
+two.  After choosing a complex coordinate on each character plane, the
+three nonidentity elements act by the even sign changes in
+\eqref{eq:SU3-local}.  At an isolated point, we denote the unique
+nonidentity stabilizer element in $G$ by $a$ and the element of $GT$ with
+zero-dimensional fixed set by $b$.  The eigenspace decomposition of $a$
+gives coordinates in which
+\[
+a=(I_4,-I_4),\qquad b=(-I_4,-I_4),\qquad ab=(-I_4,I_4),
+\]
+so quotienting by $\langle a,b\rangle$ gives the product model
+\eqref{eq:product-local}.
+\end{proof}
+
+\section{Joyce resolution data}
+We use Joyce's notation \cite[Definition 13.2.2]{JoyceBook}.  For a
+connected fixed component $C$, we define
+\[
+ N_K(C)=\{\gamma\in K:\gamma C=C\},\qquad
+ C_K(C)=\{\gamma\in K:\gamma|_C=\id_C\}.
+\]
+We denote the generic exact isotropy along $C$ by $A_C$, its tangent space
+by $V_C$, and its orthogonal complement by $W_C=V_C^\perp$.  Because $C$ is a connected component of the
+fixed set of $A_C$ and its generic points have no larger stabilizer,
+$C_K(C)=A_C$.  Joyce's residual component group is therefore
+\begin{equation}\label{eq:component-group}
+ B_C=N_K(C)/C_K(C)=N_K(C)/A_C.
+\end{equation}
+This is different from the subgroup normalizer $N_K(A_C)$: in general
+$N_K(C)\subset N_K(A_C)$.  If $C=\{p\}$ is a point, then
+$N_K(p)=C_K(p)$ and $B_p=1$.
+
+\subsection{The four-dimensional strata}
+We use the coframe
+\begin{equation}\label{eq:e-coframe}
+(e^0,e^1,e^2,e^3,e^4,e^5,e^6,e^7)
+=(ds,dt,dx_1,dy_1,dx_2,dy_2,dx_3,dy_3).
+\end{equation}
+We write $(e_0,\ldots,e_7)$ for its dual frame.  For an oriented normal
+basis $(w_1,\ldots,w_4)$, we define
+$\sigma_1=w^{12}+w^{34}$, $\sigma_2=w^{13}-w^{24}$,
+$\sigma_3=w^{14}+w^{23}$.  We also define
+$p_\pm=(e_2\pm e_3)/\sqrt2$, $q_\pm=(e_4\pm e_5)/\sqrt2$.
+
+\begin{longtable}{@{}c c c >{\raggedright\arraybackslash}p{.27\textwidth}
+>{\raggedright\arraybackslash}p{.34\textwidth}@{}}
+\caption{Normal data for the six four-stratum conjugacy classes.}
+\label{tab:rdata4}\\
+\toprule $h$&$|[h]|$&$|Z_K(h)|$&$V_h$&$W_h$ and $\zeta_h$\\\midrule\endfirsthead
+\toprule $h$&$|[h]|$&$|Z_K(h)|$&$V_h$&$W_h$ and $\zeta_h$\\\midrule\endhead
+$\kappa$&2&32&$(e_0,e_2,e_4,e_6)$&$(e_1,e_7,e_3,e_5)$; $e^{17}+e^{35}$\\
+$T$&2&32&$(e_2,e_3,e_4,e_5)$&$(e_0,e_6,e_1,-e_7)$; $e^{06}-e^{17}$\\
+$\kappa F$&4&16&$(e_0,p_-,q_-,e_7)$&$(e_1,-e_6,p_+,q_+)$;
+$-e^{16}+\frac12(e^2+e^3)\wedge(e^4+e^5)$\\
+$\iota_2\kappa$&2&32&$(e_0,e_3,e_5,-e_6)$&$(e_1,-e_7,e_2,e_4)$; $-e^{17}+e^{24}$\\
+$\kappa T$&2&32&$(e_1,e_2,e_4,-e_7)$&$(e_0,-e_6,e_3,e_5)$; $-e^{06}+e^{35}$\\
+$\iota_1\iota_2T$&2&32&$(e_2,e_3,e_4,e_5)$&$(e_0,e_6,e_1,-e_7)$; $e^{06}-e^{17}$\\
+\bottomrule
+\end{longtable}
+
+The rows of Table~\ref{tab:rdata4} classify conjugacy classes of
+generators, rather than connected fixed components.  We denote by
+$\mathcal F_4$ the finite set of connected components with generic exact isotropy
+$\Z_2$.  For each $K$-orbit in $\mathcal F_4$, we choose one component.  Its
+generator is conjugate to exactly one row of the table, and the displayed
+linear data are attached to that component and then transported around its
+orbit.  We make the same orbitwise choice for the components of the four
+two-dimensional common fixed sets and for the isolated points.  Transporting
+these choices assigns resolution data to every connected component of every
+stratum.
+
+\begin{lemma}\label{lem:four-rdata}
+Each $V_h$ is Cayley-oriented, $\zeta_h$ is self-dual on $W_h$, and the
+image of $Z_K(h)$ on $\Lambda^+W_h^*$ is
+\begin{equation}\label{eq:centralizer-image}
+\{I_3,\diag(1,-1,-1)\}
+\end{equation}
+in a basis beginning with $\zeta_h$.
+\end{lemma}
+\begin{proof}
+The expanded Cayley form is
+\begin{align}\label{eq:Phi-expanded}
+\Phi_0={}&e^{0123}+e^{0145}+e^{0167}+e^{0246}-e^{0257}-e^{0347}-e^{0356}\\
+&+e^{2345}+e^{2367}+e^{4567}-e^{1247}-e^{1256}-e^{1346}+e^{1357}.\nonumber
+\end{align}
+For each row of Table~\ref{tab:rdata4}, evaluation of the explicit form
+\eqref{eq:Phi-expanded} on the listed oriented basis of $V_h$ is $+1$;
+hence that orientation is the Cayley orientation.  Relative to the listed
+oriented basis of $W_h$, the form $\zeta_h$ equals $w^{12}+w^{34}$, so it
+is self-dual and is the first vector of the standard oriented basis of
+$\Lambda^+W_h^*$.  We restrict the five generator matrices to $W_h$ and
+write a general element in the form
+$q=F^a\iota_1^b\iota_2^c\kappa^dT^e$.  For
+$h=\kappa,T,\iota_2\kappa,\kappa T,\iota_1\iota_2T$, the equation
+$qh=hq$ is exactly $a\equiv0\pmod2$, giving $32$ elements.  For
+$h=\kappa F$ it is exactly
+$e=0$ and $d\equiv a\pmod2$, giving $16$ elements.  Thus the centralizer
+orders are $32$ and $16$, respectively, and orbit--stabilizer gives the
+class sizes displayed in Table~\ref{tab:rdata4}.  The induced action of
+each centralizer on $(\sigma_1,\sigma_2,\sigma_3)$ has image
+$\{I_3,\diag(1,-1,-1)\}$.  The nontrivial image is realized by $\kappa$
+for $h=T$, by $\iota_1$ for $h=\kappa F$, and by the corresponding
+directly computed centralizer element in each remaining row.
+\end{proof}
+
+We fix numbers $L>2\ell>0$.  For a four-dimensional component $C$ with
+pointwise stabilizer generated by $h_C$, we define
+\begin{equation}\label{eq:four-scale}
+s(C)=\begin{cases}L,&h_C\in G,\\ \ell,&h_C\in GT.\end{cases}
+\end{equation}
+We equip the radial Eguchi--Hanson resolution
+$Y_C=\EH_{s(C)}\to W_C/\{\pm1\}$ with the normalized K\"ahler form whose
+ALE limit lies on the ray $\R_{>0}\zeta_C$ and whose integral over the
+exceptional sphere is $s(C)$.  To specify the full product $\SpinSeven$
+structure, we must also fix the remaining two members of its hyperk\"ahler
+triple.  We write $(v_1,\ldots,v_4)$ for the ordered frame of $V_C$ in
+Table~\ref{tab:rdata4}, and we define
+\[
+ \alpha_1=v^{12}+v^{34},\qquad
+ \alpha_2=v^{13}-v^{24},\qquad
+ \alpha_3=v^{14}+v^{23}.
+\]
+We choose the oriented self-dual basis
+$(\sigma_1,\sigma_2,\sigma_3)$ of $W_C^*$ beginning with
+$\sigma_1=\zeta_C$ for which the flat splitting of
+\eqref{eq:Phi-expanded} is
+\begin{equation}\label{eq:four-product-flat}
+ \Phi_0=v^{1234}+\alpha_1\wedge\sigma_1
+       +\alpha_2\wedge\sigma_2-\alpha_3\wedge\sigma_3
+       +\tfrac12\sigma_1^2.
+\end{equation}
+We denote by $(\omega_{C,1},\omega_{C,2},\omega_{C,3})$ the parallel
+hyperk\"ahler triple on $\EH_{s(C)}$ that is asymptotic to
+$(\sigma_1,\sigma_2,\sigma_3)$ and whose class
+$[\omega_{C,1}]$ evaluates to $s(C)$ on the exceptional sphere.  The
+complete product model used below is therefore
+\begin{equation}\label{eq:four-product-EH}
+ \Phi_C=v^{1234}+\alpha_1\wedge\omega_{C,1}
+       +\alpha_2\wedge\omega_{C,2}-\alpha_3\wedge\omega_{C,3}
+       +\tfrac12\omega_{C,1}^2,
+ \qquad g_C=g_{V_C}+g_{\EH_{s(C)}}.
+\end{equation}
+Equation \eqref{eq:four-product-EH} is Joyce's product formula from
+\cite[Proposition 13.1.1]{JoyceBook} and specifies the complete metric and
+Cayley form at the four-dimensional stratum.
+Because $G\triangleleft K$, conjugation preserves the alternatives in
+\eqref{eq:four-scale}.  Thus $s(C)=s(C')$ whenever $\gamma C=C'$.  If
+$\gamma C=C'$, we denote by $\rho_+(D\gamma|_{W_C})$ the transport on
+self-dual two-forms induced by the oriented isometry
+$D\gamma:W_C\to W_{C'}$, and we define
+\begin{equation}\label{eq:epsilon}
+\zeta_{C'}=\epsilon_{\gamma,C}\rho_+(D\gamma|_{W_C})\zeta_C,
+\qquad \epsilon_{\gamma,C}\in\{\pm1\}.
+\end{equation}
+If $\epsilon_{\gamma,C}=+1$, we lift $D\gamma|_{W_C}$ by the radial
+holomorphic Eguchi--Hanson isometry.  If $\epsilon_{\gamma,C}=-1$, we use
+the radial antiholomorphic lift.  Definition \eqref{eq:epsilon} gives the
+cocycle identity
+\begin{equation}\label{eq:epsilon-cocycle}
+\epsilon_{\gamma\delta,C}=\epsilon_{\gamma,\delta C}\epsilon_{\delta,C}.
+\end{equation}
+Lemma~\ref{lem:four-rdata} implies $\epsilon_{\gamma,C}=1$ for every
+$\gamma\in N_K(C)$, so transport from an orbit representative is
+independent of the transporting element.  Each of the two possible lifts
+preserves the Eguchi--Hanson metric and induces on its hyperk\"ahler triple
+the same orthogonal transformation that $D\gamma$ induces on
+$\Lambda^+W_C^*$.  Because $D\gamma$ preserves the flat identity
+\eqref{eq:four-product-flat}, its action on
+$(\alpha_1,\alpha_2,\alpha_3)$ is paired with the normal action so that
+every term in \eqref{eq:four-product-EH} is fixed.  Therefore the
+transported four-stratum metric and Cayley form are exactly
+$K$-equivariant.
+
+\subsection{The two- and zero-dimensional strata}
+For $A_0=\langle\kappa,T\rangle$, $V_{A_0}=\langle e_2,e_4\rangle$ and a
+unitary normal coframe is
+\begin{equation}\label{eq:SU3-coframe0}
+\xi_1=e^0+\ii e^6,\quad \xi_2=e^3-\ii e^5,\quad \xi_3=e^1-\ii e^7.
+\end{equation}
+Relative to $(\xi_1,\xi_2,\xi_3)$, the elements $\kappa$ and $T$ act by
+the sign triples $(1,-1,-1)$ and $(-1,1,-1)$, respectively.  For $A_1$,
+whose common plane is $\langle e_3,e_5\rangle$, we use the unitary normal
+coframe
+\begin{equation}\label{eq:SU3-coframe1}
+\eta_1=e^0-\ii e^6,\quad \eta_2=e^2-\ii e^4,\quad \eta_3=e^1+\ii e^7.
+\end{equation}
+The subgroups $A_2$ and $A_3$ are $K$-conjugate to $A_1$ and $A_0$,
+respectively.  Hence every two-stratum normal representation is conjugate
+in $SU(3)$ to the diagonal subgroup
+\begin{equation}\label{eq:standard-A}
+A=\{(1,1,1),(1,-1,-1),(-1,1,-1),(-1,-1,1)\}\subset SU(3).
+\end{equation}
+The corresponding flat Calabi--Yau forms are
+\begin{align}
+\omega_{A_0}&=e^{06}-e^{35}-e^{17},&
+\Omega_{A_0}&=\xi_1\wedge\xi_2\wedge\xi_3,\label{eq:CY-A0}\\
+\omega_{A_1}&=-e^{06}-e^{24}+e^{17},&
+\Omega_{A_1}&=\eta_1\wedge\eta_2\wedge\eta_3.\label{eq:CY-A1}
+\end{align}
+We choose the oriented tangent coframe $(u^1,u^2)=(-e^2,-e^4)$ for the
+$A_0$-stratum and $(u^1,u^2)=(e^3,e^5)$ for the $A_1$-stratum.  Expanding
+the right-hand side of the following identity with
+\eqref{eq:CY-A0}--\eqref{eq:CY-A1} reproduces every term of
+\eqref{eq:Phi-expanded}; therefore, for $r=0,1$,
+\begin{equation}\label{eq:flat-SU3-product}
+\Phi_0=u^{12}\wedge\omega_{A_r}
+ +\operatorname{Re}\bigl((u^1+\ii u^2)\wedge\Omega_{A_r}\bigr)
+ +\tfrac12\omega_{A_r}^2.
+\end{equation}
+Suppose that a component fixed by $A_r$ lies in a four-dimensional
+component whose generic stabilizer is generated by $h\in A_r$.  We denote
+the complex normal coordinate fixed by $h$ by $\lambda_h$, and we denote
+the direct sum of the other two complex coordinate lines by $Q_h$.  If
+$Z_h$ is the unique coordinate $(1,0)$-vector satisfying
+$d\lambda_h(Z_h)=1$, we define the complete ordered flat transverse triple
+by
+\begin{equation}\label{eq:incidence-triple}
+ \varpi_{h,1}=\omega_{A_r}|_{Q_h},\qquad
+ \varpi_{h,2}+\ii\varpi_{h,3}
+   =(\iota_{Z_h}\Omega_{A_r})|_{Q_h}.
+\end{equation}
+Equivalently, $\varpi_{h,1}$ is the restriction of $\omega_{A_r}$ to
+$Q_h$, while $\varpi_{h,2}$ and $\varpi_{h,3}$ are the real and imaginary
+parts of the two-form obtained by contracting $\Omega_{A_r}$ with $Z_h$.
+With
+$\zeta_{\iota_1\kappa T}=-e^{06}-e^{24}$ (using the oriented normal basis
+$(e_0,-e_6,e_2,-e_4)$), the six restrictions are
+\begin{equation}\label{eq:incidence-signs}
+\begin{array}{c|c|c|c}
+ &\multicolumn{3}{c}{h:\ \text{fixed complex line},\ \omega_{\perp,h}}\\
+\hline
+A_0&\kappa:\xi_1,-\zeta_\kappa&T:\xi_2,+\zeta_T&
+\kappa T:\xi_3,-\zeta_{\kappa T}\\
+A_1&\iota_2\kappa:\eta_1,-\zeta_{\iota_2\kappa}&
+\iota_1\iota_2T:\eta_2,-\zeta_{\iota_1\iota_2T}&
+\iota_1\kappa T:\eta_3,+\zeta_{\iota_1\kappa T}.
+\end{array}
+\end{equation}
+In each row the first involution belongs to $G$ and its transverse
+Eguchi--Hanson factor has scale $L$; the other two belong to $GT$ and have
+scale $\ell$.  For every incidence in \eqref{eq:incidence-signs}, the line
+$\R\varpi_{h,1}$ equals the distinguished line $\R\zeta_h$ of the incident
+four-stratum, and the table records the orientation sign.  When the sign
+is positive, we identify the transverse resolution with the incident
+Eguchi--Hanson space by the radial holomorphic lift.  When the sign is
+negative, we use the radial antiholomorphic lift and choose the phase of
+its holomorphic symplectic form so that the pullback of
+$(\omega_{C,1},\omega_{C,2},\omega_{C,3})$ equals
+$(\varpi_{h,1},\varpi_{h,2},\varpi_{h,3})$.  Both triples are parallel and
+have the same ALE limit under this identification, so their difference is
+a parallel tensor that tends to zero and therefore vanishes identically.
+The incidences for $A_3=FA_0F^{-1}$ and $A_2=FA_1F^{-1}$ are defined by
+this $F$-transport, and their orientation signs are determined by
+\eqref{eq:epsilon-cocycle}.
+
+In each of the coframes \eqref{eq:SU3-coframe0} and
+\eqref{eq:SU3-coframe1}, the unique nonidentity element of $A_r\cap G$
+acts by $(1,-1,-1)$ and fixes the first complex coordinate line.  We define
+$m_{ij}=(e_i+e_j)/2$ and
+\begin{equation}\label{eq:toric-lattices}
+N_a=\Z^3+\Z m_{23},\qquad
+N=N_a+\Z m_{13}
+  =\Z^3+\Z m_{12}+\Z m_{13}.
+\end{equation}
+We first quotient by the old subgroup
+$A_r\cap G=\langle(1,-1,-1)\rangle$.  Its crepant subdivision is taken in
+$N_a$ and has the two maximal cones
+\[
+\langle e_1,e_2,m_{23}\rangle,\qquad
+\langle e_1,m_{23},e_3\rangle.
+\]
+Passing to the residual involution replaces $N_a$ by the quotient lattice
+$N$.  The residual fixed curves correspond to the two faces
+$\langle e_1,e_2\rangle$ and $\langle e_1,e_3\rangle$; star subdivision of
+these faces introduces the primitive rays $m_{12}$ and $m_{13}$ and gives
+the staged fan
+\begin{equation}\label{eq:toric-cones}
+\begin{split}
+\Sigma_{\rm st}^{\max}=\{&
+\langle e_1,m_{12},m_{23}\rangle,\
+\langle e_2,m_{12},m_{23}\rangle,\\
+&\langle e_1,m_{13},m_{23}\rangle,\
+\langle e_3,m_{13},m_{23}\rangle\}.
+\end{split}
+\end{equation}
+For each of the four maximal cones, the determinant of its primitive ray
+generators in the standard lattice is $\pm1/4$, which equals the covolume
+of $N$.  Those generators therefore form a basis of $N$, and the fan is
+smooth.  Every primitive ray generator lies on the height-one hyperplane,
+so the subdivision is crepant.  Because the subdivision has the same
+support $\R_{\geq0}^3$ as the affine quotient fan, the associated toric
+morphism is proper and birational.  Hence
+\begin{equation}\label{eq:Y-A}
+Y_A=Y_{\Sigma_{\rm st}}\longrightarrow\C^3/A
+\end{equation}
+is smooth and crepant.  By \cite[Proposition 9.1.4]{JoyceBook}, every
+crepant resolution of $\C^m/H$ is a local-product resolution in the sense
+required by Joyce's $R$-data definition.
+
+We denote generic exceptional $\CP^1$ fibres transverse to the first,
+second, and third coordinate axes by $C_{23},C_{13},C_{12}$,
+respectively.  Consider the torus-invariant real divisor
+\[
+ D=-\frac L2D_{m_{23}}
+   -\frac\ell2\bigl(D_{m_{12}}+D_{m_{13}}\bigr).
+\]
+In Fulton's convention, the support function of
+$D=\sum_\rho a_\rho D_\rho$ satisfies
+$\psi_D(v_\rho)=-a_\rho$.  Thus the support function associated with $D$
+is defined on the primitive rays of $\Sigma_{\rm st}$ by
+\begin{equation}\label{eq:support-values}
+\psi_D(e_i)=0,\qquad \psi_D(m_{23})=\tfrac L2,\qquad
+\psi_D(m_{12})=\psi_D(m_{13})=\tfrac\ell2.
+\end{equation}
+The compact walls
+$\langle m_{12},m_{23}\rangle$,
+$\langle m_{13},m_{23}\rangle$, and
+$\langle e_1,m_{23}\rangle$ are exactly the internal two-cones of the fan
+and have wall degrees $\ell$, $\ell$, and $(L-2\ell)/2$, respectively.
+For the third wall, this computation uses
+$m_{12}+m_{13}=e_1+m_{23}$.  Since $L>2\ell>0$, all three wall degrees are
+positive, and $\psi_D$ is strictly upper convex in Fulton's convention.
+Restriction to the three
+transverse $A_1$ fans, whose primitive relations are
+$e_i+e_j=2m_{ij}$, gives the QALE K\"ahler class periods
+\begin{equation}\label{eq:toric-periods}
+\int_{C_{23}}\omega_A=L,\qquad
+\int_{C_{13}}\omega_A=\int_{C_{12}}\omega_A=\ell.
+\end{equation}
+We normalize the compact torus as $N_{\R}/N$, so every primitive angular
+coordinate has period one.  In a convention in which primitive angles
+have period $2\pi$, the support values must instead be divided by $2\pi$;
+with either convention the geometric periods are those in
+\eqref{eq:toric-periods}.  The toric support-function theorem
+\cite[\S3.4]{Fulton} says
+that strict upper convexity is the toric ampleness criterion.  In the
+present noncompact situation this is first a relative statement for
+$Y_A\to\C^3/A$, because the fan has the support of the single affine cone.
+Since the base is affine, a relatively ample rational divisor is ample on
+$Y_A$; openness of the ample cone and linearity extend this conclusion to
+the real divisor $D$.  Its real first Chern class is therefore a K\"ahler
+class, and its integrals over invariant compact curves are the wall
+pairings above.  The pair $(A,\C^3/A)$ is the one treated
+in \cite[Example 9.3.6]{JoyceBook}, which proves that each of its four
+crepant resolutions admits a QALE K\"ahler metric.  The toric variety
+$Y_A$ is one of these resolutions and is local-product by Proposition
+9.1.4.  Joyce's \cite[Theorem 9.4.7]{JoyceBook} therefore applies to the
+specific K\"ahler class defined by $D$, equivalently by
+\eqref{eq:support-values}, and supplies
+a QALE K\"ahler representative of that class.
+
+We apply Joyce's Theorem 9.3.3 to the K\"ahler class just constructed and
+denote its unique Ricci-flat QALE representative by $g_A$, with K\"ahler
+form $\omega_A$.  We normalize the parallel holomorphic volume form
+$\Omega_A$ so that its limit is \eqref{eq:CY-A0} or \eqref{eq:CY-A1},
+according to the two-stratum orbit.  The resulting Calabi--Yau threefold
+$(Y_A,g_A,\omega_A,\Omega_A)$ has one singular-axis end asymptotic to
+$\C\times\EH_L$ and two ends asymptotic to $\C\times\EH_\ell$, with the
+hyperk\"ahler identifications in \eqref{eq:incidence-signs}.
+
+The existence of $\Omega_A$ follows from the crepant toric construction.
+The invariant flat volume form on the regular locus of $\C^3/A$ pulls back
+to the inverse image of that locus in $Y_A$.  The height-one condition
+implies that its divisor along every toric exceptional divisor is zero, so
+it extends to a nowhere-vanishing holomorphic three-form on all of $Y_A$.
+Joyce's \cite[Example 9.3.6 and Theorem 9.3.4]{JoyceBook} identifies the
+holonomy of $g_A$ with $SU(3)$; hence the extended volume form is parallel
+and unique up to a nonzero constant, whose modulus and phase are fixed by
+the prescribed flat-end limit.  Proposition 13.1.2 and Theorem 13.1.10(a)
+of \cite{JoyceBook} associate to these Calabi--Yau data the required
+torsion-free product $\SpinSeven$ structure on $\R^2\times Y_A$.
+
+At an isolated stratum, we denote the nonidentity old stabilizer by
+$a\in G$ and the all-minus stabilizer element by $b\in GT$.  We choose the
+eigenspace splitting $\R^8=U\oplus U'$ for which
+$a=(I_U,-I_{U'})$, $b=(-I_U,-I_{U'})$, and
+$ab=(-I_U,I_{U'})$, and we use the product resolution
+\begin{equation}\label{eq:EH-product}
+\EH_\ell(U)\times\EH_L(U')\longrightarrow
+(U/\{\pm1\})\times(U'/\{\pm1\}).
+\end{equation}
+We choose quaternionic structures on $U$ and $U'$ that are compatible with
+$\Phi_0$.  Under these identifications, the stabilizer is the sign subgroup
+of $Sp(1)\times Sp(1)\subset Sp(2)$.  We choose parallel triples
+$(\omega_1,\omega_2,\omega_3)$ and
+$(\omega'_1,\omega'_2,\omega'_3)$ on the two Eguchi--Hanson factors and
+normalize their flat limits so that the following expression tends to
+\eqref{eq:Phi-expanded}:
+\begin{equation}\label{eq:point-Cayley}
+\begin{split}
+ \Phi_p
+ &=\tfrac12(\omega_1+\omega'_1)^2
+   +\operatorname{Re}\bigl((\omega_2+\ii\omega_3)
+                      \wedge(\omega'_2+\ii\omega'_3)\bigr)\\
+ &=\operatorname{vol}_{\EH_\ell}+\operatorname{vol}_{\EH_L}
+   +\omega_1\wedge\omega'_1+
+    \omega_2\wedge\omega'_2-\omega_3\wedge\omega'_3.
+\end{split}
+\end{equation}
+The Riemannian metric associated with $\Phi_p$ is the product metric
+\begin{equation}\label{eq:point-metric}
+ g_p=g_{\EH_\ell(U)}+g_{\EH_L(U')}.
+\end{equation}
+Equation \eqref{eq:point-Cayley} is Proposition 13.1.4 applied to the
+product Calabi--Yau four-fold,
+whose K\"ahler form is $\omega_1+\omega'_1$ and whose holomorphic volume
+form is $(\omega_2+\ii\omega_3)\wedge
+(\omega'_2+\ii\omega'_3)$.  Hence $\Phi_p$ is closed and torsion-free.
+It remains to verify the QALE estimates for the unequal-scale product.
+Write $r_U=1+|u|$ and $r_{U'}=1+|u'|$.  On the end modelled on
+$U\times\EH_L(U')$, the ALE chart replaces the $\EH_\ell(U)$ factor by
+its flat cone and gives, for every $k\geq0$,
+\[
+ \nabla^k(\Phi_p-\Phi_{U\times\EH_L})=O(r_U^{-4-k});
+\]
+on the end modelled on $\EH_\ell(U)\times U'$, one similarly has
+\[
+ \nabla^k(\Phi_p-\Phi_{\EH_\ell\times U'})=O(r_{U'}^{-4-k}).
+\]
+We compare these estimates with the weights in
+\cite[Definition 13.1.8]{JoyceBook}.  In the first chart the index $i$
+has fixed space $V_i=U$.  Let $j$ be the index of the complementary fixed
+space $V_j=U'$.  Then $W_j=U$ has real dimension four, so Joyce's exponent
+is $d_j=2-\dim_{\R}W_j=-2$.  The subset $V_j/A_i$ of
+$V_i\times W_i/A_i$ is $\{0\}\times U'/\{\pm1\}$; hence
+$\mu_{i,j}\asymp r_U$ on the QALE region.  The minimum defining $\nu_i$
+also contains $\mu_{i,i}$, which measures the transverse radius and can
+be smaller than $r_U$.  What is needed is the one-sided estimate
+$1\leq\nu_i\leq1+\mu_{i,j}\leq C r_U$.  Since the exponents are negative,
+this gives
+\[
+ r_U^{-4-k}\leq C
+ \mu_{i,j}^{d_j}\nu_i^{-2-k}.
+\]
+Thus the first ALE error is $O$ of the weight required by Joyce's
+definition, even when the required weight is larger than
+$r_U^{-4-k}$.  The second chart is identical after interchanging $U$ and
+$U'$.
+
+In the ambient chart, the two four-plane indices satisfy
+\[
+ \mu_{\mathbf0,U}\asymp r_{U'},\qquad
+ \mu_{\mathbf0,U'}\asymp r_U,\qquad
+ \nu_{\mathbf0}\asymp1+\min(|u|,|u'|),
+\]
+and both exponents are $-2$.  If, for example, $r_U\geq r_{U'}$, then
+every derivative of the error contributed by the $U$-factor, every
+derivative of the error contributed by the $U'$-factor, and every mixed
+product of the two errors is bounded by a constant multiple of
+$r_{U'}^{-4-k}$.  This is the summand
+$O(\mu_{\mathbf0,U}^{-2}\nu_{\mathbf0}^{-2-k})$; the case
+$r_{U'}\geq r_U$ is symmetric.  Thus, for every $k\geq0$, the full error
+is bounded by
+\[
+ \sum_{q:\,\mathbf0\not\succeq q}
+ O\!\left(\mu_{\mathbf0,q}^{d_q}
+              \nu_{\mathbf0}^{-2-k}\right).
+\]
+The remaining, deeper-stratum summands on the right are harmless because
+the asserted estimate is an upper bound by the whole sum.  This verifies
+Definition 13.1.8 in every chart for
+$\EH_\ell\times\EH_L$.
+
+\begin{proposition}\label{prop:R-data}
+The four-stratum Eguchi--Hanson models, the two-stratum toric models, the
+isolated-point product models, and the transition and transport maps
+specified above and in the proof below constitute $R$-data for
+$\T^8/K$ in the sense of
+\cite[Definition 13.2.2]{JoyceBook}.
+\end{proposition}
+\begin{proof}
+We verify the three compatibility requirements of Joyce's definition.
+Condition (i) is verified separately in each stratum dimension.  At a
+four-stratum we use the product $\R^4\times\EH_{s(C)}$ of
+\cite[Proposition 13.1.1]{JoyceBook}.  At a two-stratum we use
+$\R^2\times Y_A$ and \cite[Proposition 13.1.2]{JoyceBook}.  At an isolated
+point we use the product \eqref{eq:EH-product} and
+\cite[Proposition 13.1.4]{JoyceBook}.  The estimates following
+\eqref{eq:EH-product} prove directly that the isolated-point model is
+QALE, while \cite[Theorem 13.1.10(a)]{JoyceBook} proves the QALE assertion
+for $\R^2\times Y_A$.
+
+For condition (ii), the face $\langle e_2,e_3\rangle$ transverse to the
+distinguished first axis is subdivided by $m_{23}$ and has period $L$; the
+other two coordinate faces are subdivided by $m_{13},m_{12}$ and have
+period $\ell$.  Each transverse fan is the minimal $A_1$ fan, so the three
+models are respectively $\EH_L,\EH_\ell,\EH_\ell$.
+By \cite[Proposition 9.1.4]{JoyceBook}, $Y_A$ is a local-product
+resolution.  For each fixed coordinate axis, we choose the map required
+by \cite[Definition 9.1.2]{JoyceBook} to be the toric product map obtained
+from the star of the corresponding face,
+\begin{equation}\label{eq:axis-product-map}
+ \psi_{A,h}:
+ \mathcal U_{A,h}
+ \longrightarrow Y_A.
+\end{equation}
+Here $h$ ranges over the three nonidentity elements of $A$.  We set
+$s_h=L$ when $h\in A\cap G$, and we set $s_h=\ell$ for the other two
+elements of $A$.  The set $\mathcal U_{A,h}$ is the complement of the
+deeper-stratum set in the product of the coordinate axis with the
+transverse toric $A_1$-resolution.  The star construction identifies it
+with an open neighborhood of the corresponding end of $Y_A$, and
+$\psi_{A,h}$ commutes with the blowdowns.  Proposition 9.1.5 says that
+the induced transverse resolution is itself local-product.  We use these
+maps, with the holomorphic or
+antiholomorphic transverse identification specified after
+\eqref{eq:incidence-signs}.  Formula \eqref{eq:incidence-triple} then
+identifies the entire ordered hyperk\"ahler triple, and substitution into
+\eqref{eq:four-product-EH} and \eqref{eq:SU3-product-Cayley} identifies the
+complete Cayley forms.  At an isolated point, the transition to the
+four-stratum modelled on $U\times\EH_L(U')$ is the product of the inverse
+ALE chart
+\[
+ (U/\{\pm1\})\setminus B_R\longrightarrow\EH_\ell(U)
+\]
+with the identity on $\EH_L(U')$.  The transition to the end modelled on
+$\EH_\ell(U)\times U'$ uses the inverse ALE chart
+$(U'/\{\pm1\})\setminus B_R\to\EH_L(U')$ in the second factor and the
+identity in the first factor.  The normal factors have scales $\ell$ and
+$L$, matching the new and old incident four-strata, respectively.
+
+We next identify the lower-dimensional metrics occurring in the QALE
+asymptotics.  In a QALE chart
+along one of the three singular axes, Definition 9.2.1 supplies a
+lower-dimensional QALE K\"ahler metric $g_{A,h}$ on the transverse minimal
+$A_1$ resolution; Proposition 9.2.4 says that this asymptotic metric is
+itself QALE.  Because $g_A$ is Ricci-flat and the QALE convergence holds
+with two derivatives, the Ricci tensors in the rescaled charts converge
+to $\operatorname{Ric}(g_{A,h})$; hence $g_{A,h}$ is Ricci-flat.
+Restricting \eqref{eq:toric-periods} to the transverse exceptional sphere
+gives area $L$ or $\ell$.  As
+$H^2(\EH;\R)=\R\,\operatorname{PD}[E]$, where $E$ is the exceptional
+sphere, this single period determines the complete K\"ahler class, and the
+uniqueness part of Theorem 9.3.3 gives
+\[
+ g_{A,h}=g_{\EH_L}\quad\hbox{or}\quad g_{A,h}=g_{\EH_\ell}
+\]
+with the ALE normalization already chosen at the incident four-stratum.
+Moreover, the normalized crepant volume form in the local-product chart is
+the wedge of the coordinate-axis one-form with the Eguchi--Hanson
+holomorphic two-form.  Substitution of this splitting into Joyce's formula
+in Proposition 13.1.2 proves the complete all-derivative $\SpinSeven$
+asymptotic required by Definition 13.1.8.  For the isolated-point model,
+the same all-derivative conclusion follows from the explicit product
+estimates above.
+
+In Joyce's partial order, we denote the ambient nonsingular index by
+$\mathbf 0$.  Every singular index satisfies $i\succ\mathbf 0$.  The
+remaining relations are exactly the following: each two-stratum index lies
+above the three incident four-stratum indices in
+\eqref{eq:incidence-signs}, and each isolated-point index lies above the two
+four-stratum indices associated with $U$ and $U'$.  If a chain contains a
+two-stratum, the corresponding transition map is the composition through
+the appropriate axis chart \eqref{eq:axis-product-map}.
+Proposition~\ref{prop:isotropy} shows that no other stabilizer, and hence no
+other comparable pair or chain, occurs.
+
+For condition (iii), we must prove exact equivariance of both the metric
+and the Cayley form.  Lemma~\ref{lem:four-rdata} together with
+\eqref{eq:epsilon} establishes this equivariance at every four-stratum.
+For the representatives $A_0,A_1$, direct multiplication in the normal
+form $F^a\iota_1^b\iota_2^c\kappa^dT^e$ shows that membership in either
+subgroup normalizer is equivalent to $a\equiv0\pmod2$, which gives
+\begin{equation}\label{eq:two-normalizers}
+N_K(A_0)=N_K(A_1)
+=\{F^a\iota_1^b\iota_2^c\kappa^dT^e:a\equiv0\pmod2\}.
+\end{equation}
+Thus each subgroup normalizer has order $32$ and is generated by
+$F^2,\iota_1,\iota_2,\kappa,T$.  Their complex signs in the coframes
+\eqref{eq:SU3-coframe0}--\eqref{eq:SU3-coframe1} are
+\begin{equation}\label{eq:two-normalizer-signs}
+\begin{array}{c|ccc|ccc}
+&\multicolumn{3}{c|}{(\xi_1,\xi_2,\xi_3)}
+&\multicolumn{3}{c}{(\eta_1,\eta_2,\eta_3)}\\
+\hline
+F^2,\iota_1,\iota_2&+&-&+&+&-&+\\
+\kappa&+&-&-&+&+&-\\
+T&-&+&-&-&+&-
+\end{array}
+\end{equation}
+The derivative of each listed generator is diagonal and complex-linear in
+the indicated coframe.  It therefore acts trivially on the fan lattice,
+fixes each of the six ray labels in \eqref{eq:toric-cones}, and preserves
+every support value in \eqref{eq:support-values}.  Since the normalizer of
+a connected component is a subgroup of the subgroup normalizer, these
+properties also hold for every element of its component group
+$B_{C_A}=N_K(C_A)/A$.  A diagonal complex sign map is an automorphism of
+the dense algebraic torus and fixes every cone of
+$\Sigma_{\rm st}$; it therefore has a unique holomorphic toric lift
+$\widehat\gamma$ to $Y_A$ agreeing with it on that dense torus.
+
+The toric lift $\widehat\gamma$ preserves the K\"ahler class specified by
+\eqref{eq:toric-periods}.  Hence $\widehat\gamma^*\omega_A$ is a
+Ricci-flat QALE K\"ahler form in the same class and with the same normalized
+flat limit as $\omega_A$; uniqueness in Joyce's Theorem 9.3.3 gives
+\begin{equation}\label{eq:normalizer-CY}
+\widehat\gamma^*\omega_A=\omega_A,\qquad
+\widehat\gamma^*\Omega_A=\delta_\gamma\Omega_A,\qquad
+\delta_\gamma\in\{\pm1\},
+\end{equation}
+where $\delta_\gamma$ is the product of the three complex signs in
+\eqref{eq:two-normalizer-signs}.  On the flat end, the diagonal complex
+signs multiply the holomorphic volume form by $\delta_\gamma$.  Since both
+$\widehat\gamma^*\Omega_A$ and $\delta_\gamma\Omega_A$ are parallel
+holomorphic volume forms with that same limit, they agree everywhere.
+
+We denote the complex one-form on the tangent two-plane chosen above by
+$\nu=u^1+\ii u^2$.  With this choice, the product Cayley form is
+\begin{equation}\label{eq:SU3-product-Cayley}
+\Phi_A=\tfrac12\omega_A^2+u^{12}\wedge\omega_A
+       +\operatorname{Re}(\nu\wedge\Omega_A).
+\end{equation}
+For each normalizer element $\gamma$, its original affine derivative on
+$V_{A_r}\oplus W_{A_r}$ preserves $\Phi_0$.  Together with
+$\gamma^*\Omega_{A_r}=\delta_\gamma\Omega_{A_r}$, the flat product identity
+forces its tangent action to satisfy
+\begin{equation}\label{eq:tangent-phase}
+\gamma^*\nu=\delta_\gamma\nu.
+\end{equation}
+We denote the resulting product lift on $V_{A_r}\times Y_A$ by
+\[
+ \widetilde\gamma
+ =(D\gamma|_{V_{A_r}})\times\widehat\gamma.
+\]
+Substitution of \eqref{eq:normalizer-CY} and
+\eqref{eq:tangent-phase} into \eqref{eq:SU3-product-Cayley} gives
+$\widetilde\gamma^*\Phi_A=\Phi_A$ and
+$\widetilde\gamma^*((u^1)^2+(u^2)^2+g_A)
+=(u^1)^2+(u^2)^2+g_A$ exactly.
+At a point, the two involutions with four-dimensional fixed space act as
+$(-I_U,I_{U'})$ and $(I_U,-I_{U'})$.  We use the product
+$\EH_\ell(U)\times\EH_L(U')$ from \eqref{eq:EH-product}.  Because $B_p=1$,
+condition (iii) imposes no nontrivial residual automorphism on the model
+attached to a fixed point component; it remains to define transports
+between distinct points in the same $K$-orbit.  If
+$p'=\gamma p$, normality of $G$ preserves the unique old subgroup
+$A_p\cap G$; hence $D\gamma$ carries the labelled character splitting
+$U_p\oplus U'_p$ to $U_{p'}\oplus U'_{p'}$ without interchanging the
+unequal-scale factors.  We denote the radial lifts of the two linear
+quotient maps by
+\[
+ \widehat{\gamma}_U:\EH_\ell(U_p)\longrightarrow\EH_\ell(U_{p'}),
+ \qquad
+ \widehat{\gamma}_{U'}:\EH_L(U'_p)\longrightarrow\EH_L(U'_{p'}).
+\]
+We choose each lift
+so that its action on the Eguchi--Hanson hyperk\"ahler triple is the
+orthogonal transformation induced by the corresponding restriction of
+$D\gamma$ on flat self-dual two-forms; this determines whether the lift is
+holomorphic or antiholomorphic.  We define
+\begin{equation}\label{eq:point-transport}
+ \chi_{\gamma,p}=\widehat{\gamma}_U\times\widehat{\gamma}_{U'}.
+\end{equation}
+Under these lifts, every term in the bilinear formula
+\eqref{eq:point-Cayley} transforms exactly as its flat-limit counterpart.
+Since $(D\gamma)^*\Phi_0=\Phi_0$, it follows that
+$\chi_{\gamma,p}^*\Phi_{p'}=\Phi_p$, and the radial isometries also give
+$\chi_{\gamma,p}^*g_{p'}=g_p$.
+
+For each two-stratum orbit, we define the data on a translate
+$C'=\gamma C_A$ by transporting the data on the chosen representative
+through $\gamma$.  If two elements give the same translate, their quotient
+lies in $N_K(C_A)$, and the proved $B_{C_A}$-invariance shows that the
+transported datum is independent of the choice.  We define the
+isolated-point data orbitwise by the same procedure.
+
+Every transport map constructed above agrees, away from the exceptional
+locus, with the lift of the original affine action.  Therefore, for every
+component $C$ and every $\gamma,\delta\in K$, the two sides of
+\begin{equation}\label{eq:chi-cocycle}
+ \chi_{\gamma\delta,C}
+ =\chi_{\gamma,\delta C}\circ\chi_{\delta,C}
+\end{equation}
+agree on the dense open set on which the blowdown is an isomorphism.  Since
+both sides are continuous maps, equality on that dense set implies
+equality everywhere.  Thus the transports satisfy Joyce's cocycle
+\eqref{eq:chi-cocycle}.  Conditions (i)--(iii), and hence all the
+requirements of \cite[Definition 13.2.2]{JoyceBook}, are satisfied.
+\end{proof}
+
+\subsection{The global Joyce atlas and analytic gluing}
+We now specialize Joyce's Definition 13.2.5 to the full nested isotropy
+stratification of $\T^8/K$.  We use $\mathcal I$ to index the distinct connected
+submanifolds that occur as components of $\Fix(A)$ for subgroups
+$A\leq K$, together with the ambient component
+$F_{\mathbf 0}=\T^8$.  The bold index $\mathbf 0$ is distinct from the
+two-stratum subgroup $A_0$ in \eqref{eq:A01}.  For each index, we define
+\[
+ A_i=C_K(F_i),\qquad V_i=T F_i,\qquad W_i=V_i^\perp,
+ \qquad B_i=N_K(F_i)/A_i.
+\]
+The partial order $i\succeq j$ means $F_i\subset F_j$, so indices higher
+in this partial order correspond to deeper strata.  Besides
+$i\succ\mathbf 0$,
+the only strict chains consist of a two-stratum above one of its incident
+four-strata or an isolated point above one of its two incident
+four-strata, as displayed below:
+\[
+\text{two-stratum}\succ\text{four-stratum}\succ\mathbf 0,\qquad
+\text{point}\succ\text{four-stratum}\succ\mathbf 0.
+\]
+
+We choose Joyce's dimension-indexed constants
+$\zeta_0,\zeta_1,\zeta_2,\zeta_4,\zeta_8>0$ and define
+$\xi_i=\zeta_{\dim V_i}$.  Only dimensions $0,2,4,8$ occur.  We set
+\begin{equation}\label{eq:Joyce-neighborhoods}
+ O_i=\{x:d(x,F_i)\leq\xi_i\},\qquad
+ P_i=\{x:d(x,F_i)<2\xi_i\},\qquad
+ Q_i=P_i\setminus\bigcup_{j\succ i}O_j.
+\end{equation}
+We choose the constants in increasing order of $\dim V_i$, beginning with
+the zero-dimensional strata, and make each new constant sufficiently small
+that two incomparable neighborhoods $P_i,P_j$ can meet only inside a
+neighborhood $O_k$ of a component satisfying $k\succ i,j$.  Such a choice
+exists because every intersection of two affine fixed flats is a finite
+union of components belonging to deeper fixed sets.  Joyce's
+\cite[Proposition 13.2.4]{JoyceBook} then proves
+\[
+ Q_i\cap Q_j\ne\varnothing\quad\Longrightarrow\quad
+ i\succeq j\ \hbox{or}\ j\succeq i.
+\]
+The same proposition supplies, for each $i$, a $B_i$-equivariant flat
+tubular identification of $Q_i/A_i$ with an open subset of
+$F_i\times(W_i/A_i)$, and it proves that the $B_i$-action on that open set
+is free.
+
+For each singular index $i$, we denote by $\pi_i:Y_i\to W_i/A_i$ the model
+appropriate to its stratum: an Eguchi--Hanson resolution in codimension
+four, $Y_A$ in codimension six, and $\EH_\ell\times\EH_L$ at an isolated
+point.  For $i=\mathbf 0$, we take the identity model.  We define
+\begin{equation}\label{eq:Joyce-patches}
+ M_i=(\id_{F_i}\times\pi_i)^{-1}(Q_i/A_i)
+       \subset F_i\times Y_i.
+\end{equation}
+For $i\succeq j$, we denote by $\psi'_{i,j}$ the local-product embedding
+constructed in the proof of Proposition~\ref{prop:R-data}, and we set
+$\psi'_{i,i}=\id$.  We now define the relation in
+\eqref{eq:Joyce-atlas} explicitly.  If $x\in M_j$ and $y\in M_k$, declare
+$x\sim y$ precisely when one of the following two clauses holds:
+\begin{enumerate}
+\item There exists $\gamma\in K$ such that $i=\gamma\cdot k$ satisfies
+$i\succeq j$, such that
+$x\in M_j\cap(P_i\times Y_j)$, and
+\begin{equation}\label{eq:atlas-relation-a}
+ (\id\times\psi'_{i,j})(x)
+   =(\gamma\times\chi_{\gamma,k})(y);
+\end{equation}
+\item There exists $\gamma\in K$ such that $i=\gamma\cdot j$ satisfies
+$i\succeq k$, such that
+$y\in M_k\cap(P_i\times Y_k)$, and
+\begin{equation}\label{eq:atlas-relation-b}
+ (\gamma\times\chi_{\gamma,j})(x)
+   =(\id\times\psi'_{i,k})(y).
+\end{equation}
+\end{enumerate}
+In both clauses, $\gamma\times\chi_{\gamma,k}:F_k\times Y_k\to
+F_i\times Y_i$ acts by the affine map $\gamma:F_k\to F_i$ on the first
+factor and by the resolution transport on the second.  These clauses
+reproduce \cite[Definition 13.2.5]{JoyceBook}.  The cocycle
+\eqref{eq:chi-cocycle} and equality of the incidence transition maps on
+nested local-product charts imply reflexivity, symmetry, and transitivity
+and identify the two composites on every triple overlap.  Hence
+\begin{equation}\label{eq:Joyce-atlas}
+ \widehat Z=\left(\coprod_{i\in\mathcal I}M_i\right)\big/\!\sim
+\end{equation}
+is covered by the smooth patches $M_i/B_i$.  The action of $B_i$ on $M_i$
+is free because it covers the free action on $Q_i/A_i$.  Thus
+\eqref{eq:Joyce-atlas} is a smooth
+eight-manifold.  The maps $\id\times\pi_i$ glue to a blowdown
+\begin{equation}\label{eq:Joyce-blowdown}
+ \pi:\widehat Z\longrightarrow\T^8/K.
+\end{equation}
+Properness can be checked locally on the target.  We choose a finite
+refinement of the Joyce cover by relatively compact open sets $U_\alpha$.
+For each $\overline U_\alpha$, its inverse image under $\pi$ is a closed
+subset of the union of finitely many inverse images under the proper model
+maps $\id\times\pi_i$, and is therefore compact.  Thus $\pi$ is proper.
+Since $\pi$ is surjective and $\T^8/K$ is compact, $\widehat Z$ is compact.
+The atlas, equivalence relation, and blowdown just constructed are the
+objects of \cite[Definition 13.2.5]{JoyceBook} in the present notation.
+
+The scaled data entering the analytic theorem are as follows.  For
+$t\in(0,1]$, we retain the same $Y_i$ and define
+\[
+ \pi_i^t=t\pi_i,\qquad
+ \Phi_i^t=t^4D_{t;i}^*\Phi_i,\qquad
+ g_i^t=t^2D_{t;i}^*g_i,
+\]
+where
+\[
+ D_{t;i}:V_i\times Y_i\longrightarrow V_i\times Y_i,
+ \qquad D_{t;i}(v,y)=(t^{-1}v,y).
+\]
+Here $t\pi_i$ means postcomposition of $\pi_i$ with radial dilation by
+$t$ on the cone $W_i/A_i$.
+Thus the flat metric along $V_i$ is unchanged and the resolving normal
+metric is scaled by $t^2$.  We define
+\[
+ M_i^t=(\id_{F_i}\times\pi_i^t)^{-1}(Q_i/A_i).
+\]
+For every strict incidence $i\succ j$, we define
+\[
+ V'_{ij}=V_j\cap W_i,\qquad V_j=V_i\oplus V'_{ij}.
+\]
+Condition (ii) gives an equivariant QALE identification
+$\psi'_{i,j}:\mathcal U'_{ij}\to Y_i$ on an open overlap
+$\mathcal U'_{ij}\subset V'_{ij}\times Y_j$.  We define
+\[
+ \mathcal U_{ij}=V_i\times\mathcal U'_{ij}
+       \subset V_i\times V'_{ij}\times Y_j=V_j\times Y_j,
+ \qquad
+ \Psi_{ij}=\id_{V_i}\times\psi'_{i,j}.
+\]
+The displayed product decomposition identifies $\mathcal U_{ij}$ with an
+eight-dimensional open subset of $V_j\times Y_j$.
+Proposition~13.1.9 of \cite{JoyceBook} supplies an equivariant
+$\sigma_{ij}\in\Omega^3(\mathcal U_{ij})$ satisfying
+\begin{equation}\label{eq:unscaled-overlap-primitive}
+ d\sigma_{ij}=\Psi_{ij}^*\Phi_i-\Phi_j.
+\end{equation}
+We define
+\[
+ D'_{t;ij}:V'_{ij}\times Y_j\longrightarrow V'_{ij}\times Y_j,
+ \qquad D'_{t;ij}(v',y)=(t^{-1}v',y),
+\]
+\[
+ \mathcal U_{ij}^{\prime,t}
+   =(D'_{t;ij})^{-1}(\mathcal U'_{ij}),\qquad
+\mathcal U_{ij}^t=D_{t;j}^{-1}(\mathcal U_{ij})
+   =V_i\times\mathcal U_{ij}^{\prime,t},
+\]
+and we define
+\[
+ (\psi'_{i,j})^t
+   =\psi'_{i,j}\circ D'_{t;ij}:
+      \mathcal U_{ij}^{\prime,t}\longrightarrow Y_i,\qquad
+ \Psi_{ij}^t=\id_{V_i}\times(\psi'_{i,j})^t
+ =D_{t;i}^{-1}\circ\Psi_{ij}\circ D_{t;j},
+ \qquad
+ \sigma_{ij}^t=t^4D_{t;j}^*\sigma_{ij}.
+\]
+We use these scaled local-product maps and the unchanged equivariant
+transports $\chi^t_{\gamma,i}=\chi_{\gamma,i}$ in the two clauses
+\eqref{eq:atlas-relation-a}--\eqref{eq:atlas-relation-b}, with $M_i$
+replaced by $M_i^t$.  The quotient defined by those clauses is denoted by
+$\widehat Z^t$.  The local maps $\id\times\pi_i^t$ agree under the
+equivalence relation and therefore define
+\begin{equation}\label{eq:scaled-blowdown}
+ \pi^t:\widehat Z^t\longrightarrow\T^8/K.
+\end{equation}
+The local models and all transition maps depend smoothly on $t$.  The
+parameter-dependent patch charts and the graphs of their transition maps
+therefore give the total quotient over $(0,1]$ the structure of a smooth
+manifold, and projection to $t$ is a submersion with fibre $\widehat Z^t$.
+Over a compact subinterval $J\subset(0,1]$, the properness argument used
+for \eqref{eq:Joyce-blowdown}, applied to the finite parameterized patch
+cover, shows that the inverse image of $J$ is compact.  Ehresmann's theorem
+then makes the restriction over $J$ a smooth fibre bundle.  These
+restrictions are compatible as $J$ varies, so the total quotient is a
+smooth fibre bundle over $(0,1]$.  Since this interval is contractible,
+the bundle admits a smooth trivialization.  We fix one such trivialization
+$\vartheta_t:\widehat Z\to\widehat Z^t$ with $\vartheta_1=\id$ and pull
+all subsequent forms and maps back by $\vartheta_t$.  We retain the same
+symbols for the transported objects and also write $M_i^t$ for the
+inverse-image patches in the fixed manifold $\widehat Z$.  This
+gives the smooth connected family of scaled resolutions in
+\cite[Definition 13.4.1]{JoyceBook}, written here with an explicit fixed
+fibre.
+
+The conjugation formula for $\Psi_{ij}^t$ is forced by the scaled
+blowdowns.  Under the fixed identification
+$W_i/A_i\cong V'_{ij}\times(W_j/A_j)$, it gives
+\[
+ \pi_i^t\bigl((\psi'_{i,j})^t(v',y)\bigr)
+   =\bigl(v',\pi_j^t(y)\bigr).
+\]
+Applying $t^4D_{t;j}^*$ to
+\eqref{eq:unscaled-overlap-primitive}, and using the conjugation formula,
+gives
+\begin{equation}\label{eq:overlap-primitive}
+ d\sigma_{ij}^t=
+ (\Psi_{ij}^t)^*\Phi_i^t-\Phi_j^t,
+\end{equation}
+and the scaled forms retain the full derivative estimates in
+Proposition~13.1.9 of \cite{JoyceBook}.  We choose the unscaled primitives
+simultaneously, as in \cite[Section 13.3.1]{JoyceBook}, so that
+\[
+(\Psi_{jk})^*\sigma_{ij}
+ +\sigma_{jk}-\sigma_{ik}=0
+\qquad(i\succ j\succ k),
+\]
+on every triple overlap.  Scaling this identity gives
+\[
+(\Psi_{jk}^t)^*\sigma_{ij}^t
+ +\sigma_{jk}^t-\sigma_{ik}^t=0
+\qquad(i\succ j\succ k),
+\]
+which is the additive cocycle needed on the scaled triple overlaps.
+
+We now specify the correction terms.  For every four-dimensional
+component $F_j$, Section 13.3.2 of \cite{JoyceBook} defines a homogeneous
+three-form $\tau_j$ on $\R^8\setminus V_j$ as the leading homogeneous
+term of $\sigma_{j\mathbf 0}$.  If $i\succeq j$, the $R$-data overlap map and the
+flat tubular quotient push $\tau_j$ down to an invariant three-form on
+$Q_i\setminus F_j$.  The pushed-down forms obtained from two comparable
+indices coincide on their common domain.  We choose the special partition
+of unity in \cite[Definition 13.2.6]{JoyceBook} and denote its functions
+by $\eta_i'$.  These functions satisfy, simultaneously,
+\[
+ \operatorname{supp}\eta_i'\subset Q_i,\qquad
+ \eta_{\gamma i}'\circ\gamma=\eta_i',\qquad
+ \sum_{i\in\mathcal I}\eta_i'=1,
+\]
+and the following normal-direction condition.  For every
+$i\ne\mathbf 0$ and
+every $j$, there is a smooth function $\bar\eta_{ij}$ on $F_i$ such that,
+on a neighborhood of $F_i$,
+\[
+ \eta_j'=\operatorname{pr}_{F_i}^*\bar\eta_{ij}.
+\]
+Thus every partition function, not only $\eta_i'$, is constant in the
+$W_i$-directions there.  For a fixed index $j$ of dimension four, we
+define, initially on the complement of $F_j$,
+\begin{equation}\label{eq:Xi-smooth-extension}
+ \Xi_j=\sum_{i\succeq j}d\eta_i'\wedge\tau_j
+ =d\!\left(\sum_{i\succeq j}\eta_i'\right)\wedge\tau_j.
+\end{equation}
+Near $F_j$, every partition function that can be nonzero has an index
+$i\succeq j$.  Consequently the parenthesized sum in
+\eqref{eq:Xi-smooth-extension} is identically one on a neighborhood of
+$F_j$, and its differential is identically zero there.  Therefore
+$\Xi_j$ is zero on a punctured neighborhood of $F_j$ and has a unique
+smooth extension across $F_j$ obtained by setting it equal to zero.  The
+pushed-down forms agree on overlaps, so
+\[
+ \Xi=\sum_{\dim V_j=4}\Xi_j
+\]
+is a globally defined smooth $K$-invariant four-form on $\T^8$.  We use
+the same symbol for the descended orbifold four-form on $\T^8/K$.
+The flat metric and its Hodge star are $K$-invariant, so the Hodge
+decomposition restricts to the $K$-invariant de Rham complex of
+$\T^8$, equivalently to the orbifold de Rham complex of $\T^8/K$.
+Applied to $d\Xi$, this decomposition first gives an invariant
+anti-self-dual four-form $\Phi^-_0$ satisfying
+$d\Phi^-_0=d\Xi$.  Any two such anti-self-dual solutions differ by a
+harmonic anti-self-dual four-form.  The difference $\Phi^-_0-\Xi$ is
+closed.  There is therefore a unique harmonic anti-self-dual four-form
+$h^-$ for which
+\[
+ [\Phi^-_0+h^- -\Xi]\in H^4_+(\T^8/K;\R).
+\]
+Indeed, $h^-$ is the negative of the anti-self-dual harmonic component
+of $[\Phi^-_0-\Xi]$.  We set $\Phi^-=\Phi^-_0+h^-$.  This proves both
+existence and uniqueness of the anti-self-dual solution for which
+$[\Phi^--\Xi]$ is self-dual.  We denote the harmonic self-dual
+representative of this class by $\Psi$.  The closed form
+$\Phi^--\Xi-\Psi$ represents zero in cohomology and is therefore exact.
+We choose an invariant three-form $\Upsilon$ satisfying
+\begin{equation}\label{eq:Joyce-global-correction}
+ d\Upsilon=\Phi^--\Xi-\Psi.
+\end{equation}
+These are exactly the forms constructed in
+\cite[Section 13.3.3]{JoyceBook}.
+
+For an orbit $[i]\in\mathcal I/K$, we define
+$\eta_{[i]}'=\sum_{j\in[i]}\eta_j'$.  This function is $K$-invariant and
+therefore descends to $\T^8/K$.  We then define
+\[
+ \eta_{[i]}^t=(\pi^t)^*\eta_{[i]}'.
+\]
+The normal-direction condition implies that this pullback is smooth
+across every exceptional set.  The functions $\eta_{[i]}^t$ form a
+partition of unity on the fixed manifold $\widehat Z$.  We fix an index
+$i$.  In a summand indexed by an orbit $[j]$, the relation $j\succ i$
+(respectively, $i\succ j$) means that one has chosen a representative
+$j\in[j]$ comparable with $i$.  The $K$-action and the
+cocycle \eqref{eq:chi-cocycle} identify the local forms obtained from
+any two such representatives.  Consequently each orbit sum below is
+independent of this choice and descends to $M_i^t/B_i$.  On that quotient
+patch, we define the pregluing form by
+\begin{equation}\label{eq:Joyce-pregluing}
+ \xi^t=\Phi_i^t
+ +\sum_{\substack{[j]\in\mathcal I/K\\ j\succ i}}
+       d(\eta_{[j]}^t\sigma_{ji}^t)
+ -\sum_{\substack{[j]\in\mathcal I/K\\ i\succ j}}
+       d(\eta_{[j]}^t\sigma_{ij}^t)
+ +t^4d\bigl(f^t(\pi^t)^*\Upsilon\bigr)+t^4\Psi^t.
+\end{equation}
+The first two sums correct the exact differences
+\eqref{eq:overlap-primitive}.  In the first sum every product
+$\eta_{[j]}^t\sigma_{ji}^t$, and in the second every product
+$\eta_{[j]}^t\sigma_{ij}^t$, is extended by zero outside the corresponding
+orbit patch.  The support and normal-constancy conditions make both kinds
+of extension smooth; equivariance gives the representative-independence
+asserted above.
+
+It remains to define $f^t$ and $\Psi^t$.  We denote the singular set by
+$S\subset\T^8/K$ and the image of $F_i$ by $\overline F_i$.  We also define
+\[
+ \rho_t(x)=\bigl[t+d(\pi^t(x),S)\bigr]^{-1}.
+\]
+This is the weight function of
+\cite[Definition 13.4.2]{JoyceBook}; the weighted estimates in
+\cite[Propositions 13.4.3--13.5.7]{JoyceBook} are all taken with respect
+to $\rho_t$.  Using the radii in \eqref{eq:Joyce-neighborhoods},
+Definition 13.4.2 gives the open subsets
+\begin{align*}
+ D^t&=\{x:d(\pi^t(x),\overline F_i)>t^{1/3}\xi_i
+             \text{ for every }i\ne\mathbf 0\},\\
+ E^t&=\{x:d(\pi^t(x),\overline F_i)>2t^{1/3}\xi_i
+             \text{ for every }i\ne\mathbf 0\}.
+\end{align*}
+The inclusion $E^t\subset D^t$ holds, and both sets lie over the regular
+locus.  Definition 13.5.1 supplies a smooth function $f^t$ that is
+identically zero on a neighborhood of $\widehat Z\setminus D^t$,
+identically one on $E^t$, and satisfies
+\[
+ |\nabla^q f^t|_{g_i^t}=O(t^{-q/3})
+ \quad\text{on }(M_i^t/B_i)\cap(D^t\setminus E^t),
+ \qquad q=0,1,2,\qquad i\in\mathcal I.
+\]
+The form
+$f^t(\pi^t)^*\Upsilon$ in \eqref{eq:Joyce-pregluing} is evaluated on the
+regular support of $f^t$ and extended by zero; it is smooth because the
+cutoff vanishes on a neighborhood of the complement of $D^t$.  The form
+$\Psi^t$ is the closed extension furnished by
+\cite[Proposition 13.4.4]{JoyceBook}; it equals $(\pi^t)^*\Psi$ on $D^t$ and
+$[\Psi^t]=(\pi^t)^*[\Psi]$.  Equation
+\eqref{eq:Joyce-global-correction} cancels the leading homogeneous
+$t^4$ contribution from every four-dimensional stratum.  On an overlap,
+equation \eqref{eq:overlap-primitive} and the additive cocycle for the
+$\sigma_{ij}^t$ show that the two local expressions in
+\eqref{eq:Joyce-pregluing} agree.  They therefore define a global
+four-form $\xi^t$.  Each local expression is closed because
+$d\Phi_i^t=0$, $d^2=0$, and $d\Psi^t=0$.  Hence $d\xi^t=0$.  This is
+\cite[Definition 13.5.1 and Proposition 13.5.2]{JoyceBook}.
+
+Let $\mathcal A\widehat Z\subset\Lambda^4T^*\widehat Z$ be the bundle of
+admissible four-forms.  Definition 10.5.8 of \cite{JoyceBook} constructs
+an open tubular neighborhood
+$\mathcal T\widehat Z\subset\Lambda^4T^*\widehat Z$ and a specific smooth
+fibre map $\Theta:\mathcal T\widehat Z\to\mathcal A\widehat Z$.  Pointwise,
+each element of $\mathcal T\widehat Z$ has a unique expression
+$\Omega+\chi$, where $\Omega$ is admissible,
+$\chi\in\Lambda^4_{27}$ for the metric induced by $\Omega$, and $|\chi|$
+is smaller than the fixed tubular radius; Joyce defines
+$\Theta(\Omega+\chi)=\Omega$.  To avoid confusion with the holomorphic
+volume form used earlier, we denote this particular map by
+$\Theta_{\rm adm}$ below.  Proposition 10.5.9 gives its nonlinear
+expansion and estimates.
+For all sufficiently small $t$, the form $\xi^t$ takes values in the
+domain of $\Theta_{\rm adm}$.  We define
+\begin{equation}\label{eq:pre-torsion}
+ \Phi_{\rm pre}^t=\Theta_{\rm adm}(\xi^t),\qquad
+ \phi^t=\xi^t-\Phi_{\rm pre}^t,\qquad
+ g^t=g_{\Phi_{\rm pre}^t}.
+\end{equation}
+Then
+\begin{equation}\label{eq:torsion-primitive}
+ d\Phi_{\rm pre}^t+d\phi^t=0.
+\end{equation}
+The cancellation in \eqref{eq:Joyce-pregluing} removes the leading
+codimension-four torsion term.  The resulting estimates in
+\cite[Theorem 13.5.8]{JoyceBook} give constants independent of $t$ such
+that
+\begin{equation}\label{eq:Joyce-estimates}
+ \|\phi^t\|_{L^2}\le Ct^{13/3},\qquad
+ \|d\phi^t\|_{L^{10}}\le Ct^{7/5},\qquad
+ \delta(g^t)\ge ct,\qquad
+ \|R(g^t)\|_{C^0}\le Ct^{-2}.
+\end{equation}
+
+\begin{theorem}\label{thm:Joyce-existence}
+There exists $\varepsilon>0$ such that the compact smooth eight-manifold
+$\widehat Z$ carries a torsion-free $\SpinSeven$ structure
+$\widehat\Phi_t$ for every $t\in(0,\varepsilon)$.
+\end{theorem}
+\begin{proof}
+Equations \eqref{eq:torsion-primitive}--\eqref{eq:Joyce-estimates} are
+exactly the hypotheses of \cite[Theorem 13.6.1]{JoyceBook}.  In the notation
+of its proof, there is a small anti-self-dual four-form $\eta^t$ satisfying
+\[
+ d\eta^t=d\phi^t+dF_{\Phi_{\rm pre}^t}(\eta^t),
+ \qquad \|\eta^t\|_{C^0}=O(t^{1/3}),
+\]
+where the quadratic normal correction is characterized by
+\[
+ \Theta_{\rm adm}(\Phi_{\rm pre}^t+\eta)
+ =\Phi_{\rm pre}^t+\eta-F_{\Phi_{\rm pre}^t}(\eta).
+\]
+Consequently,
+\[
+ \widehat\Phi_t=
+ \Theta_{\rm adm}(\Phi_{\rm pre}^t+\eta^t)
+ =\Phi_{\rm pre}^t+\eta^t-F_{\Phi_{\rm pre}^t}(\eta^t)
+\]
+is an admissible four-form.  Equations
+\eqref{eq:torsion-primitive} and the nonlinear equation give the explicit
+calculation
+\begin{align*}
+d\widehat\Phi_t
+ &=d\Phi_{\rm pre}^t+d\eta^t
+   -dF_{\Phi_{\rm pre}^t}(\eta^t)\\
+ &=-d\phi^t+
+   \bigl(d\phi^t+dF_{\Phi_{\rm pre}^t}(\eta^t)\bigr)
+   -dF_{\Phi_{\rm pre}^t}(\eta^t)=0.
+\end{align*}
+An admissible four-form defines a $\SpinSeven$ structure, and such a
+structure is torsion-free if and only if its defining four-form is closed.
+Thus $\widehat\Phi_t$ is torsion-free.  This is the existence
+conclusion of \cite[Theorem 13.6.2]{JoyceBook}.
+\end{proof}
+
+\section{The equivariant first resolution and the global blowdown}
+The Joyce resolution admits a topological description by two successive
+fibrewise resolutions.  This description identifies its cohomology and
+fundamental group in Sections~5 and~6.
+
+\subsection{The Mart\'in--Merch\'an resolution}
+The singular locus of $X$ is the disjoint union of ten associative
+three-manifolds $N_1,\ldots,N_{10}$ of exact normal isotropy $\Z_2$
+\cite[Section 2]{MM}.  Using the component frames, radii, and lifted
+transition maps already fixed for the old $G$-strata in the Joyce atlas,
+we denote the corresponding first-stage resolution by
+\begin{equation}\label{eq:M-resolution}r:M\longrightarrow X.\end{equation}
+The relative equivariant
+tubular-neighborhood argument at the end of Lemma~\ref{lem:tau-lift}
+identifies it, over $X$ and relative to the exterior, with the resolution
+used in \cite{MM}.  It replaces each normal
+$\C^2/\{\pm1\}$ by
+\begin{equation}\label{eq:Y-model}
+Y=\{(w,\ell)\in\C^2\times\CP^1:w\in\ell\}/((w,\ell)\sim(-w,\ell)).
+\end{equation}
+The fibrewise squaring map identifies this smooth complex surface with
+$\operatorname{Tot}\mathcal O_{\CP^1}(-2)$, the minimal resolution of
+$\C^2/\{\pm1\}$.
+The manifold $M$ is simply connected \cite[Section 2.2]{MM}.  We write
+$E_j=r^{-1}(N_j)$ and denote its exceptional Thom class by
+$x_j\in H^2(M)$.  The normal complex
+structure is defined by
+\begin{equation}\label{eq:normal-I}
+g(I_jv,w)=\varphi(\chi_j,v,w),\qquad
+\chi_j=\begin{cases}\partial_{y_3},&j=1,2,\\
+\partial_{x_3},&j\ge3.\end{cases}
+\end{equation}
+
+\begin{lemma}\label{lem:tau-lift}
+The involution $\tau$ lifts to an involution $\widetilde\tau:M\to M$ with
+$r\circ\widetilde\tau=\tau\circ r$, and
+\begin{equation}\label{eq:tau-x}
+\widetilde\tau^*x_1=-x_2,\qquad \widetilde\tau^*x_2=-x_1,\qquad
+\widetilde\tau^*x_j=x_j\quad(3\le j\le10).
+\end{equation}
+\end{lemma}
+\begin{proof}
+At $t=0$, we express the action in the same mapping-torus chart by defining
+\begin{equation}\label{eq:tau0}
+\tau_0=F^{-1}\tau,\qquad
+\tau_0(z_1,z_2,z_3)=(-\ii z_1,-\ii z_2,z_3-\tfrac14).
+\end{equation}
+At $t=0$ the two relevant chosen covers are
+\begin{align*}
+N_1^1&=\{(x_1-\ii x_1,x_2-\ii x_2,\ii y_3):x_1,x_2,y_3\in\R/\Z\},\\
+N_2^1&=\{(x_1+\ii x_1,x_2+\ii x_2,-\tfrac14+\ii y_3):
+             x_1,x_2,y_3\in\R/\Z\}.
+\end{align*}
+Consequently $\tau_0$ sends the displayed point of $N_1^1$ to
+\[
+(-x_1-\ii x_1,-x_2-\ii x_2,-\tfrac14+\ii y_3)\in N_2^1.
+\]
+The same substitution on $N_2^1$ gives
+\[
+\tau_0(N_1^1)=N_2^1,\qquad
+\tau_0(N_2^1)=N_1^2=\iota_1N_1^1.
+\]
+At $t=\frac12$, the covers of $N_3,\ldots,N_6$ have fixed imaginary
+half-periods in the three elliptic coordinates, and $\tau$ preserves each
+chosen component.  The covers of $N_7,\ldots,N_{10}$ have fixed real
+half-periods in $z_1,z_2$ and a fixed imaginary quarter-period in $z_3$;
+$\iota_2\tau$ preserves each chosen component.  Thus the maps on the
+component covers are
+\begin{equation}\label{eq:component-lifts}
+\begin{array}{c|c|c}
+\text{components}&\text{map on the component cover}&\text{deck involution}\\
+\hline
+N_1^1\longrightarrow N_2^1&\tau_0&\iota_2\\
+N_2^1\longrightarrow N_1^1&\iota_1\tau_0&\iota_2\\
+N_j^1\longrightarrow N_j^1,\ 3\le j\le6&\tau&\iota_1\\
+N_j^1\longrightarrow N_j^1,\ 7\le j\le10&\iota_2\tau&\iota_1.
+\end{array}
+\end{equation}
+Here $\tau_0$ commutes with $\iota_1,\iota_2$ and
+$\tau_0^2=\iota_1$.  Thus the first two displayed maps are inverse to one
+another and are $\iota_2$-equivariant.  The maps in the last two rows square
+to the identity and commute with $\iota_1$.
+
+Every representative $L$ in \eqref{eq:component-lifts} satisfies
+$L^*\varphi=-\varphi$.  If $L_*\chi_j=\chi_k$, then for normal vectors
+$v,w$,
+\[
+g(I_kLv,Lw)=\varphi(\chi_k,Lv,Lw)
+           =-\varphi(\chi_j,v,w)=g(-LI_jv,Lw).
+\]
+Thus $I_kL=-LI_j$.  In particular, $D\tau_0\chi_1=\chi_2$ gives
+\begin{equation}\label{eq:antilinear}D\tau_0I_1=-I_2D\tau_0.\end{equation}
+The same identity holds for $\iota_1\tau_0$.  In the last two rows of
+\eqref{eq:component-lifts}, the derivative sends $\chi_j$ to $-\chi_j$;
+the same displayed calculation now has two minus signs, which cancel, and
+\begin{equation}\label{eq:linear}D\tau I_j=I_jD\tau\quad(j\ge3).\end{equation}
+Here $D\tau$ denotes the derivative of the representative in the relevant
+row; the translations $\iota_2$ do not alter the calculation.
+
+We now construct the global lift, including the normal orbibundle
+quotients.  In the notation of Mart\'in--Merch\'an, the resolved local piece
+over $N_j$ is
+\begin{equation}\label{eq:MM-local-piece}
+ \mathcal P_j=(N_j^1\times Y)/\langle d_j\rangle,
+ \qquad
+ d_j=\begin{cases}\iota_2,&j=1,2,\\
+                   \iota_1,&3\leq j\leq10.
+       \end{cases}
+\end{equation}
+In the unitary normal frame used in \eqref{eq:normal-I}, the deck map acts
+on the two complex normal coordinates by $\diag(1,-1)$; the central
+$-I$ has already been divided out in the definition of $Y$.  Thus
+\[
+ d_j(x,[(w,\lambda)])=
+ (d_jx,[(D d_jw,Dd_j\lambda)]).
+\]
+A linear or antilinear isometry $L$ lifts canonically to $Y$ by
+\begin{equation}\label{eq:canonical-Y-lift}
+ [(w,\lambda)]\longmapsto[(Lw,L\lambda)].
+\end{equation}
+
+We define $L_1=\tau_0:N_1^1\to N_2^1$ and
+$L_2=\iota_1\tau_0:N_2^1\to N_1^1$.  We also define
+$L_j=\tau$ for $3\leq j\leq6$ and $L_j=\iota_2\tau$ for
+$7\leq j\leq10$.  The commutation relations in
+\eqref{eq:component-lifts} hold on both the base and the normal frame, so
+\begin{equation}\label{eq:deck-equivariance}
+ L_jd_j=d_kL_j
+\end{equation}
+when $L_j$ maps the $j$th component to the $k$th.  Hence
+\[
+ \widehat L_j[x,y]=[L_jx,\widehat{D L_j}y]
+\]
+is a well-defined map between the quotients \eqref{eq:MM-local-piece}.
+The compositions are exact:
+\[
+ (\iota_1\tau_0)\tau_0=\iota_1\tau_0^2=1,
+ \qquad \tau_0(\iota_1\tau_0)=1,
+ \qquad \tau^2=(\iota_2\tau)^2=1.
+\]
+Thus the lifted local maps satisfy the involution cocycle before gluing.
+
+For the tubular gluing, we choose an ambient metric on a neighborhood of
+the disjoint union of the lifted strata in the smooth mapping-torus cover
+and average it over the finite group generated by the old deck maps and
+the $L_j$.  The resulting orthogonal normal bundles and ambient
+exponential maps are equivariant.  We choose the radii and radial cutoff
+functions to be constant on each orbit of components.
+On the common annulus, \eqref{eq:canonical-Y-lift} agrees with the original
+linear action through the blowdown, so it glues to that action on the
+complement.  The maps $\widehat L_j$ therefore define a global involution
+$\widetilde\tau$ with $r\circ\widetilde\tau=\tau\circ r$.
+
+Finally, this equivariant choice has the same underlying resolution as the
+one used in \cite{MM}.  Indeed, the equivariant tubular-neighborhood
+uniqueness theorem \cite[Chapter VI]{BredonGroup} gives an equivariant
+isotopy between any two such tubular embeddings after shrinking the radii;
+isotopy extension \cite[Chapter 8]{Hirsch} gives a
+diffeomorphism relative to the complement of the resolution
+neighborhoods.  Hence the exceptional labels and the cohomology-ring
+calculation from \cite{MM} apply to the present $r$.  For $j=1,2$ the lift
+is antiunitary and conjugates the $\mathcal O(-2)$ fibre coordinate, so it
+reverses the Thom orientation.  For $j\geq3$ it is unitary and preserves
+that orientation.  This proves \eqref{eq:tau-x}.
+\end{proof}
+
+The sign in \eqref{eq:epsilon} is equivalently determined by
+$D\gamma I_C=\epsilon_{\gamma,C}I_{\gamma C}D\gamma$.  Thus its cocycle law
+is automatic.  In particular $\epsilon_{\tau,N_1}=-1$, while it is $+1$ on
+$N_j$, $j\ge3$; the $R$-data uses the same exceptional orientations.
+
+\subsection{The second stage}
+We define
+\begin{equation}\label{eq:W-Z0}
+W=S^1\times M,\qquad \sigma(s,p)=(-s,\widetilde\tau p),\qquad
+Z_0=W/\langle\sigma\rangle.
+\end{equation}
+Because $\tau$ normalizes $G$, it induces $\bar\tau:X\to X$, and there is a
+canonical identification
+\[
+\mathcal O=(S^1\times\T^7)/(G\rtimes\langle T\rangle)
+\cong(S^1\times X)/\langle\bar T\rangle,
+\qquad \bar T(s,x)=(-s,\bar\tau x).
+\]
+The identity
+$(\id_{S^1}\times r)\circ\sigma
+=\bar T\circ(\id_{S^1}\times r)$ makes
+$\id_{S^1}\times r$ descend to a blowdown
+\begin{equation}\label{eq:q0}
+q_0:Z_0\longrightarrow\mathcal O,\qquad
+q_0([s,p])=[s,r(p)].
+\end{equation}
+It is proper because its domain is compact.
+
+\begin{lemma}\label{lem:two-stage}
+The fixed locus of $\sigma$ is a disjoint union of smooth four-manifolds.
+Resolving the resulting $A_1$ singularities gives a smooth manifold
+$\widehat Z_{\rm st}$ and a proper degree-one map
+\begin{equation}\label{eq:rho}\rho:\widehat Z_{\rm st}\longrightarrow Z_0.\end{equation}
+This staged resolution is diffeomorphic, compatibly over the regular locus,
+to the Joyce resolution $\widehat Z$.
+\end{lemma}
+\begin{proof}
+Since $\sigma$ is a smooth involution, its fixed locus is a smooth embedded
+submanifold.  Away from the old exceptional set, the exact-isotropy part of
+Table~\ref{tab:coset-fixed} says that all its branches have dimension four.
+Every zero-dimensional branch lies on an old stratum by
+\eqref{eq:zero-old-stabilizer}.  There are two local intersection models.
+
+At a codimension-six stratum, we choose coordinates in which
+\begin{align}\label{eq:stage-SU3}
+a(u,z_1,z_2,z_3)&=(u,z_1,-z_2,-z_3),\\
+h(u,z_1,z_2,z_3)&=(u,-z_1,z_2,-z_3).\nonumber
+\end{align}
+We resolve the old $a$-quotient in $(z_2,z_3)$ by the scale-$L$
+Eguchi--Hanson model $Y$.  The residual map is
+induced by
+\[
+(z_1,z_2,z_3)\longmapsto(-z_1,z_2,-z_3).
+\]
+On $Y$, the lift of
+$(z_2,z_3)\mapsto(z_2,-z_3)$ has two disjoint fixed complex lines, over
+$[1:0]$ and $[0:1]$ in the exceptional $\CP^1$.  More explicitly, if
+\[
+L_2=\{[((w_2,0),[1:0])]:w_2\in\C\},\qquad
+L_3=\{[((0,w_3),[0:1])]:w_3\in\C\},
+\]
+then the residual fixed set is
+\[
+\R^2_u\times\{0\}_{z_1}\times(L_2\sqcup L_3).
+\]
+It consists of two disjoint real four-dimensional branches.  We resolve
+both branches.  This operation inserts the remaining two midpoint rays
+with scale $\ell$ and gives the staged fan
+\eqref{eq:toric-cones} and the support data \eqref{eq:support-values}.
+
+At an isolated product point, we choose the representation
+$a=(I_U,-I_{U'})$ and $h=(-I_U,-I_{U'})$.
+After resolving the $a$-quotient, the model is
+\[
+ U\times\EH_L(U'),
+\]
+and the residual involution is
+$(-I_U,\id_{\EH_L(U')})$.  Its fixed set is
+$\{0\}\times\EH_L(U')$, again of real dimension four.  The second
+resolution is
+$\EH_\ell(U)\times\EH_L(U')$ as in \eqref{eq:EH-product}.
+
+These models are exhaustive for the following group-theoretic reason.  If
+$p\in\Fix(\sigma)$ lies over the old exceptional set, then
+$q_0([p])\in\mathcal O$ has stabilizer containing a nonidentity old element
+$a\in G$ and a new element $h\in GT$.  Proposition~\ref{prop:isotropy}
+says that $\langle a,h\rangle$ is either a codimension-six $\Z_2^2$ with
+fixed-dimension pattern $(4,4,4)$, or an isolated $\Z_2^2$ with pattern
+$(4,4,0)$; no larger stabilizer occurs.  The first case is exactly the
+$L_2\sqcup L_3$ calculation and the second is exactly
+$\{0\}\times\EH_L(U')$.  Points away from the old exceptional set have
+exact new $\Z_2$ isotropy and give the regular four-dimensional branches
+already identified from Table~\ref{tab:coset-fixed}.  Thus every component
+$B$ of $\Fix(\sigma)$ has codimension four.
+
+We now define the fibrewise resolution globally.  For each component $B$
+of $\Fix(\sigma)$, we identify $B$ with its image in $Z_0$ and write
+$\nu B=TW|_B/TB$ for its normal bundle.  The derivative of $\sigma$ is the
+identity on $TB$ and minus the identity on $\nu B$.
+
+On the dense regular locus, $\widetilde\tau$ agrees with $\tau$, whose
+linear part has determinant $-1$; hence $\widetilde\tau$ reverses the
+orientation of $M$.  Reflection reverses the orientation of $S^1$, so
+$\sigma$ preserves the product orientation of $W$.  Each tangent four-plane of $B$ has the
+Cayley orientation in its local product model, and the transition maps
+preserve the corresponding Cayley form.  These local orientations give a
+global orientation of $TB$.  We orient $\nu B$ so that the direct-sum
+orientation of $TB\oplus\nu B$ is the ambient orientation.  In
+each $R$-data chart, the chosen normal frame identifies the normal fibre
+with the standard oriented $\R^4=\C^2$.  Let
+\[
+ H_B=U(2)\rtimes\langle\text{complex conjugation}\rangle\subset SO(4).
+\]
+The normalizer matrices \eqref{eq:centralizer-image} and
+\eqref{eq:two-normalizer-signs}, together with the cocycle
+\eqref{eq:chi-cocycle}, show that every change between these normal frames
+takes values in $H_B$ and that the changes satisfy the cocycle identity.
+In a codimension-six chart, the two residual branches are $L_2,L_3$, and
+\eqref{eq:incidence-signs} identifies the normal-frame reduction obtained
+from the regular chart with the one obtained from the
+$\C\times\EH_L$ chart.  At an isolated chart, the two factors in
+\eqref{eq:EH-product} give the same identification.  Consequently the
+normal frame cocycle defines a principal $H_B$-reduction $P_B$ of the
+oriented linear frame bundle of $\nu B$.
+
+The standard inner product on $\R^4$ is $H_B$-invariant, so $P_B$ defines
+a metric on $\nu B$.  The standard K\"ahler form is self-dual for this
+metric; $U(2)$ fixes it and complex conjugation negates it.  Hence its
+unoriented span defines a smooth line bundle
+\[
+ \ell_B=P_B\times_{H_B}\R\omega_{\rm std}
+ \subset\Lambda^+\nu^*B.
+\]
+This order of construction is essential: the $H_B$-reduction first
+defines the compatible normal metric, and self-duality is asserted only
+for that metric.  We extend the metric from $TB\oplus\nu B$ to a
+$\sigma$-invariant metric near $B$ and then to $W$; averaging does not
+alter its prescribed value along $B$ because $D\sigma$ acts as
+$I\oplus(-I)$.  The equivariant exponential map now identifies a
+neighborhood of $B$ in $Z_0$ with the orbibundle
+\begin{equation}\label{eq:normal-orbibundle}
+ \nu B/\{\pm1\}\longrightarrow B,
+\end{equation}
+whose fibre is $\R^4/\{\pm1\}$.
+
+Every transition in $H_B$ has the canonical radial
+holomorphic or antiholomorphic lift to $\EH_\ell$ constructed in
+\eqref{eq:epsilon}; equation \eqref{eq:chi-cocycle} says that these lifted
+transition functions satisfy the cocycle.  Using the principal
+$H_B$-reduction $P_B$, we define
+\begin{equation}\label{eq:associated-EH-bundle}
+ \mathcal E_B=P_B\times_{H_B}\EH_\ell,
+ \qquad
+ \rho_B([f,y])=[f,\pi_{\EH}(y)]
+   \in P_B\times_{H_B}(\R^4/\{\pm1\}).
+\end{equation}
+Here the notation means that $H_B$ acts through its canonical lifted
+action on $\EH_\ell$; equivalently, \eqref{eq:associated-EH-bundle} is
+defined directly by the lifted transition cocycle.  We truncate both
+bundles at the common chosen radius.  On the boundary annulus the Eguchi--Hanson
+blowdown is the original quotient identification, so $\mathcal E_B$ glues
+to the unchanged exterior by the same fixed boundary identification.  Performing
+this construction on the disjoint components defines the global map
+$\rho$ in \eqref{eq:rho}.  It is an orientation-preserving diffeomorphism
+over the regular set; a regular value has one positive preimage, so
+$\deg\rho=1$.
+
+It remains to compare the gluing with the $R$-data resolution.  The map
+$r$ was defined using the restrictions of the Joyce component frames,
+tubular maps, radii, and lifted cocycle to the old subgroup $G$.  At a
+two-stratum, the first blowup is the toric star subdivision by $m_{23}$ in
+$N_a$.  Passing to the residual quotient enlarges $N_a$ to $N$; the two
+nonsaturated boundary faces are $\langle e_1,e_2\rangle$ and
+$\langle e_1,e_3\rangle$, and their star subdivisions insert $m_{12}$ and
+$m_{13}$.  Hence the resulting fan is exactly \eqref{eq:toric-cones},
+including its diagonal $\langle e_1,m_{23}\rangle$ and the support values
+corresponding to periods $L,\ell,\ell$.  Every transition derivative lies in the relevant
+normalizer after the labels are transported from $A_0$ or $A_1$.
+The exact calculation \eqref{eq:two-normalizers}--\eqref{eq:two-normalizer-signs}
+shows that it fixes every ray label; in particular it preserves the fan and
+support function.  Its toric lift is exactly the lift used in the $R$-data
+atlas.  At a four-stratum the
+analogous statement is uniqueness of the lift to the minimal $A_1$
+resolution, and at a zero-stratum it is the product lift to
+$\EH_\ell(U)\times\EH_L(U')$.  Thus, for this chosen representative of the
+first-stage resolution, the staged atlas and the $R$-data atlas have the
+same local models, tubular maps, and lifted transition cocycle.  In a
+codimension-six
+chart the composite ``$m_{23}$ subdivision, residual lattice quotient,
+$m_{12},m_{13}$ subdivisions'' is the toric transition associated with
+the fan \eqref{eq:toric-cones}; at a point it is the product blowdown
+\eqref{eq:EH-product}.  On every boundary annulus both use the original
+affine quotient map.  Hence the transition maps coincide and glue to a
+global diffeomorphism over $\mathcal O$ whose restriction to the regular
+locus is the identity.
+
+This identification does not depend on the chosen presentation of the
+first resolution.  After the tubular radii are decreased if necessary,
+any two equivariant tubular embeddings of the same normal orbibundles are
+equivariantly isotopic.  The isotopy lifts through the fixed local
+resolution model and extends across the common boundary annulus.  If the
+strata are treated in decreasing order of depth, the isotopy extension
+theorem produces at each stage a diffeomorphism relative to the pieces
+already treated and relative to the exterior.  This relative uniqueness
+identifies the chosen map $r$ with the resolution map of any
+Mart\'in--Merch\'an presentation while preserving the exceptional labels
+and the cohomology classes used below.
+\end{proof}
+
+We henceforth identify $\widehat Z_{\rm st}$ with $\widehat Z$ by the
+diffeomorphism constructed in Lemma~\ref{lem:two-stage}.
+
+\section{A Massey product outside its full indeterminacy}
+We define
+\begin{equation}\label{eq:abc}
+a=x_1+x_2,\qquad b=x_7+x_3,\qquad c=x_7-x_3\in H^2(M).
+\end{equation}
+
+We use the following set-valued convention.  If closed forms
+$\alpha_1,\alpha_2,\alpha_3$ of degrees $p,q,r$ represent
+$a_1,a_2,a_3$, and
+\[
+d\xi_{12}=\alpha_1\alpha_2,\qquad
+d\xi_{23}=\alpha_2\alpha_3,
+\]
+then
+\begin{equation}\label{eq:Massey-coset}
+\langle a_1,a_2,a_3\rangle
+=[\xi_{12}\alpha_3-(-1)^p\alpha_1\xi_{23}]
++I(a_1,a_3),
+\end{equation}
+where the full indeterminacy is
+\begin{equation}\label{eq:general-indeterminacy}
+I(a_1,a_3)=a_1H^{q+r-1}+H^{p+q-1}a_3
+\end{equation}
+in the cohomology of the ambient CDGA.
+As the representatives and primitives vary, the resulting cohomology
+classes form precisely the affine coset in \eqref{eq:Massey-coset}.
+Consequently zero belongs to the Massey product if and only if one, and
+hence every, defining-system representative belongs to the full
+indeterminacy subspace \eqref{eq:general-indeterminacy}.
+
+\begin{proposition}[Mart\'in--Merch\'an]\label{prop:MM-Massey}
+The product $\langle a,b,c\rangle$ is defined and
+\begin{equation}\label{eq:MM-nonzero}0\notin\langle a,b,c\rangle.\end{equation}
+Equivalently, every defining-system representative $Y\in H^5(M)$ satisfies
+\begin{equation}\label{eq:old-indeterminacy}
+Y\notin I_M,\qquad I_M=aH^3(M)+H^3(M)c.
+\end{equation}
+\end{proposition}
+\begin{proof}[Full-indeterminacy calculation]
+The additive splitting and products from \cite[Section 3]{MM} are
+\begin{align}
+H^k(M)&=H^k(X)\oplus\bigoplus_{j=1}^{10}H^{k-2}(N_j)x_j,\label{eq:MM-cohom}\\
+x_jx_k&=0\ (j\ne k),\qquad x_j^2=-2\PD[N_j].\label{eq:exceptional-products}
+\end{align}
+For completeness, these formulas follow directly from the local
+replacement.  We denote by $U_0$ the complement of smaller disjoint tubular
+neighborhoods of the $N_j$.  Both $X$ and $M$ are obtained from $U_0$ by
+attaching bundles with the same boundary $N_j\widetilde\times\RP^3$; the
+singular fibre is $C(\RP^3)$ and the resolved fibre is the truncated disc
+bundle of $\mathcal O_{\CP^1}(-2)$.  Over $\R$, their fibre-pair
+cohomologies are, explicitly,
+\[
+H^q(C(\RP^3),\RP^3;\R)=
+ \begin{cases}\R,&q=4,\\0,&q\ne4,\end{cases}
+\quad
+H^q(D(\mathcal O(-2)),S(\mathcal O(-2));\R)=
+ \begin{cases}\R,&q=2,4,\\0,&q\ne2,4.\end{cases}
+\]
+We spell out the bundle argument that turns this fibre calculation into a
+calculation of the relative groups.  For each $j$, let $T_j$ be the relative
+orientation class of the singular cone bundle, normalized to have fibre
+integral one, and choose a closed, compactly supported Thom form $\theta_j$
+of the exceptional divisor in the resolved bundle.  On a resolved fibre,
+$[\theta_j]$ generates the degree-two relative cohomology and
+$-\frac12[\theta_j]^2$ generates the degree-four relative cohomology,
+because the exceptional curve has self-intersection $-2$.  The local
+coefficient systems are trivial.  Indeed, the degree-four system is the
+orientation system of the oriented normal cone, while in
+\eqref{eq:MM-local-piece} the deck transformation acts holomorphically on
+$\CP^1$ and therefore fixes both $[\theta_j]$ and
+$[\theta_j]^2$.
+
+Relative Leray--Hirsch, followed by excision, now gives
+\begin{align*}
+ H^k(X,U_0)&\cong\bigoplus_j H^{k-4}(N_j),\\
+ H^k(M,U_0)&\cong\bigoplus_j\left(
+ H^{k-2}(N_j)[\theta_j]\oplus H^{k-4}(N_j)[\theta_j]^2\right).
+\end{align*}
+The fibrewise blowdown has oriented degree one.  Therefore the relative
+pullback of $T_j$ has fibre integral one, so its
+$-\frac12[\theta_j]^2$-coordinate is one.  Consequently relative pullback
+is injective, its image is a graph over the degree-four summand, and its
+cokernel is identified, using the chosen Leray--Hirsch generators, with
+$\bigoplus_jH^{k-2}(N_j)[\theta_j]$.  Choosing this graph as the common
+summand gives the relative splitting used below.  We define
+\begin{equation}\label{eq:cohomology-splitting-map}
+ \Psi_k\bigl(\xi,(\lambda_j)_j\bigr)
+ =r^*\xi+\sum_j
+   [\operatorname{pr}_j^*\lambda_j\wedge\theta_j].
+\end{equation}
+Here $\xi$ and the $\lambda_j$ are cohomology classes.  To realize the
+displayed map by differential forms, we choose a representative of $\xi$
+that is constant in the normal directions near every $N_j$ before taking
+its pullback, as in \cite[Section 3]{MM}, and we choose closed
+representatives of the $\lambda_j$ on the $N_j$.
+
+We now give the diagram chase that proves that $\Psi_k$ is an
+isomorphism.  The vertical map on the common exterior $U_0$ is the
+identity.  We fix $y\in H^k(M)$ and write $u=y|_{U_0}$.  The boundary of $u$
+in the long exact sequence of $(M,U_0)$ is zero.  Naturality and
+injectivity of relative pullback on the common
+$\bigoplus_jH^{k+1-4}(N_j)$ summand imply that the boundary of $u$ in the
+long exact sequence of $(X,U_0)$ is also zero.  Exactness therefore gives
+a class $\xi\in H^k(X)$ satisfying $\xi|_{U_0}=u$.  The class
+$y-r^*\xi$ restricts to zero on $U_0$ and hence is the image of a relative
+class in $H^k(M,U_0)$.  Decompose that relative class into its common
+degree-four part and its additional degree-two part.  The common part is
+the pullback of a relative class for $(X,U_0)$ and can be absorbed into
+$\xi$; the additional part maps to a sum of the supported classes in
+\eqref{eq:cohomology-splitting-map}.  This proves that $\Psi_k$ is
+surjective.
+
+The new summands are independent of one another and of the pullback
+summand.  Indeed, if
+$i_j:E_j\hookrightarrow M$ and $p_j:E_j\to N_j$, then
+\begin{equation}\label{eq:exceptional-coefficient-map}
+ -\tfrac12(p_j)_*i_j^*
+ \bigl(\operatorname{pr}_k^*\lambda_k\wedge\theta_k\bigr)
+ =\delta_{jk}\lambda_k,
+ \qquad
+ (p_j)_*i_j^*r^*\xi=0.
+\end{equation}
+Indeed, $i_j^*\theta_j=e(\mathcal O(-2))$ integrates to $-2$ on the
+$\CP^1$ fibre.  Thus the homomorphism
+$C_j=-\frac12(p_j)_*i_j^*$ extracts the $j$th exceptional coefficient.
+
+It remains to prove that $r^*:H^k(X)\to H^k(M)$ is injective.  Suppose
+that $r^*\xi=0$.  Its restriction to $U_0$ is zero, so exactness represents
+$\xi$ by a relative class $a\in H^k(X,U_0)$.  Naturality shows that the
+relative pullback of $a$ maps to zero in $H^k(M)$.  Exactness for
+$(M,U_0)$ therefore expresses that pullback as the boundary of a class in
+$H^{k-1}(U_0)$.  The relative pullback is injective on the common relative
+summand, so naturality implies that $a$ itself is the boundary of the same
+class in the sequence for $(X,U_0)$.  Hence $\xi=0$.  The maps $C_j$ and
+the injectivity of $r^*$ prove that $\Psi_k$ is injective.  Therefore every
+$\Psi_k$ is an isomorphism, proving \eqref{eq:MM-cohom} with the stated
+normalization.  Supports for
+different resolution neighborhoods are
+disjoint, so $x_jx_k=0$ for $j\ne k$.  On one fibre, the normal line of the
+exceptional $\CP^1$ is $\mathcal O(-2)$; its Euler class evaluates to
+$-2$.  The Thom self-intersection formula therefore gives
+$x_j^2=-2\PD[N_j]$, including the displayed sign.  This also proves the
+supported pushforward rule \eqref{eq:pushforward-product} used below.
+Here $\PD[N_j]$ means the pullback of the Poincar\'e dual in $X$, regarded
+as an element of the $H^4(X)$ summand in \eqref{eq:MM-cohom}.  We denote
+the exceptional projection by
+\begin{equation}\label{eq:piE}
+\pi_E:H^5(M)\longrightarrow
+\bigoplus_{j=1}^{10}H^3(N_j)x_j.
+\end{equation}
+The two products needed to define the Massey product are
+\[
+ab=(x_1+x_2)(x_7+x_3)=0
+\]
+because the four exceptional neighborhoods are pairwise disjoint, and
+\[
+bc=x_7^2-x_3^2=-2\PD[N_7]+2\PD[N_3]=0
+\]
+because $\PD[N_3]=\PD[N_7]$.  Thus
+$\langle a,b,c\rangle$ is defined.  We define
+$v_j=[\varphi|_{N_j}]x_j$.  We recall the geometric
+construction of the primitive used by Mart\'in--Merch\'an.  On the
+mapping-torus cover, $N_3^1$ and $N_7^1$ are joined by the embedded
+oriented cobordism
+\[
+ \mathcal C=\{(t,x_1,x_2,x_3+\ii f(t)):
+  \tfrac12\leq t\leq\tfrac32,\ x_1,x_2,x_3\in\R/\Z\},
+\]
+where $f$ is nondecreasing, $f=0$ for $t\leq9/8$, and $f=1/4$ for
+$t\geq5/4$.  Two points in the displayed parameter domain have the same
+image only if their $t$-coordinates differ by an integer.  Since the
+interior $t$-coordinates lie in an interval of length one, equality in the
+interior forces equality of all parameters.  At the endpoints, the only
+additional identification is the defining mapping-torus identification.
+It identifies the upper boundary with the specified lift of $N_7$ and
+does not identify distinct interior points.  Hence the parametrization is
+an embedding, and the boundary-orientation convention gives
+$\partial\mathcal C=N_3^1-N_7^1$.  Its normal bundle is trivialized by
+\[
+ \partial_{y_1},\quad\partial_{y_2},\quad
+ \partial_{y_3}-f'(t)\partial_t.
+\]
+We choose $\zeta:\R^3/\Z^3\to\R$ with integral one and support in
+$B_{2\delta}(0)\setminus B_\delta(0)$.  We also choose $h$ to be zero near
+$t=1/2,3/2$, equal to one on
+$[1/2+2\epsilon,3/2-2\epsilon]$.  In the displayed normal coordinates, we define
+\begin{equation}\label{eq:explicit-cobordism-form}
+ \beta_{\mathcal C}=
+ h(t)\zeta(y_1,y_2,y_3-f(t))\,dy_1\wedge dy_2
+ \wedge\bigl(dy_3-f'(t)\,dt\bigr).
+\end{equation}
+This is the Thom form of $\nu\mathcal C$ away from the boundary collars.
+We choose $h$ to be increasing on the lower boundary collar and decreasing
+on the upper boundary collar.  We denote the four-form supported in the
+lower collar by $\upsilon_3^1$ and the negative of the four-form supported
+in the upper collar by $\upsilon_7^1$.  Then
+\[
+ d\beta_{\mathcal C}
+ =h'(t)\zeta(y_1,y_2,y_3-f(t))\,
+   dt\wedge dy_1\wedge dy_2\wedge dy_3
+ =\upsilon_3^1-\upsilon_7^1.
+\]
+The normalization $\int\zeta=1$, together with
+$\int h'(t)\,dt=1$ on the lower collar and
+$\int h'(t)\,dt=-1$ on the upper collar, shows that both
+$\upsilon_3^1$ and $\upsilon_7^1$ have fibre integral $+1$ with respect to
+the oriented normal fibres of their respective boundary components.
+
+We define $K_0=\langle\iota_1,\iota_2,\kappa\rangle$, which has order
+eight, and set
+\[
+ \beta_0=\frac14\sum_{\gamma\in K_0}\gamma^*\beta_{\mathcal C},
+ \qquad
+ \upsilon_j^0=\frac14\sum_{\gamma\in K_0}\gamma^*\upsilon_j^1
+ \quad(j=3,7).
+\]
+These forms are $K_0$-invariant and satisfy
+$d\beta_0=\upsilon_3^0-\upsilon_7^0$.  The subgroup of $K_0$ preserving a
+chosen lifted component has order four.  Thus, on a lifted normal fibre,
+the four coincident stabilizer terms cancel the factor $1/4$, and
+$\upsilon_j^0$ has fibre integral one.  The invariant forms descend
+through the old quotients.  On a normal fibre of $N_j$, the remaining
+quotient is the degree-two map
+$\C^2\to\C^2/\{\pm1\}$.  Consequently the descended closed forms
+$\upsilon_j$ on $X$ have the precise normalization
+\begin{equation}\label{eq:half-Thom}
+ 2[\upsilon_j]=\operatorname{Th}[N_j]\in H_c^4(V_j),
+ \qquad j=3,7.
+\end{equation}
+We denote the three-form on $X$ descended from $\beta_0$ by
+$\bar\beta_0$.  It satisfies
+$d\bar\beta_0=\upsilon_3-\upsilon_7$.
+At $t=1$ one has $h=1$ and $f=0$.  Substitution of the component
+parametrizations gives
+\[
+ \int_{N_1^k}\beta_{\mathcal C}=-1,\qquad
+ \int_{N_2^k}\beta_{\mathcal C}=+1,\qquad
+ \int_{N_j^k}\varphi=2\quad(j=1,2).
+\]
+Set $\sigma_1=-1$ and $\sigma_2=1$.  Every element of $K_0$ preserves
+$\varphi$, preserves the Cayley orientations of these components, and
+permutes the two lifts of each $N_j$.  Hence, for every
+$\gamma\in K_0$ and $j,k\in\{1,2\}$,
+\[
+ \bigl[(\gamma^*\beta_{\mathcal C})|_{N_j^k}\bigr]
+ =\frac{\sigma_j}{2}[\varphi|_{N_j^k}]\in H^3(N_j^k).
+\]
+There are eight terms in the definition of $\beta_0$ and its coefficient
+is $1/4$.  It follows that
+\[
+ [\beta_0|_{N_j^k}]=\sigma_j[\varphi|_{N_j^k}].
+\]
+Both sides are pullbacks of classes on the quotient component $N_j$.
+Pullback along the finite covering of the component is injective over
+$\R$, so
+\begin{equation}\label{eq:beta0-restrictions}
+ [\bar\beta_0|_{N_1}]=-[\varphi|_{N_1}],\qquad
+ [\bar\beta_0|_{N_2}]= [\varphi|_{N_2}].
+\end{equation}
+After shrinking the already chosen neighborhoods of $N_3$ and $N_7$, we
+choose invariant tubular neighborhoods $V_1,V_2$ so that
+$V_1,V_2,V_3,V_7$ are pairwise disjoint.  On $V_j$, for $j=1,2$, the
+closed form
+$\bar\beta_0-\sigma_j\pi_j^*(\varphi|_{N_j})$ restricts trivially to the
+zero section.  Since $V_j$ deformation retracts onto $N_j$, there is a
+two-form $q_j$ on $V_j$ such that
+\[
+ dq_j=\bar\beta_0-\sigma_j\pi_j^*(\varphi|_{N_j}).
+\]
+We average $q_j$ over the finite stabilizer of $V_j$ and choose an
+invariant cutoff $\chi_j$ supported in $V_j$ and equal to one on a smaller
+tubular neighborhood.  We define
+\[
+ \alpha_{\mathcal C}
+ =\bar\beta_0-d(\chi_1q_1+\chi_2q_2).
+\]
+It follows directly that
+\begin{equation}\label{eq:cobordism-primitive}
+ d\alpha_{\mathcal C}=\upsilon_3-\upsilon_7,\qquad
+ \alpha_{\mathcal C}|_{V_1}=-\pi_1^*(\varphi|_{N_1}),\qquad
+ \alpha_{\mathcal C}|_{V_2}= \pi_2^*(\varphi|_{N_2}).
+\end{equation}
+The form $\bar\beta_0$ is zero in a neighborhood of the $t=1/2$ slice,
+whereas the two cutoff corrections are supported near $N_1$ and $N_2$ in
+the $t=1$ slice.  Therefore $\alpha_{\mathcal C}$ is zero near the
+$t=1/2$ slice.  This slice contains every $N_j$ with
+$3\leq j\leq10$, so
+$\alpha_{\mathcal C}$ vanishes near all of those components, not only near
+$N_3\cup N_7$.
+The two signs are the oriented intersection numbers
+$\mathcal C\cdot N_1=-1$ and $\mathcal C\cdot N_2=+1$; they follow by
+comparing
+$(-\partial_t,\partial_{x_1},\partial_{x_2},\partial_{x_3})$ on
+$T\mathcal C$ with the Cayley orientations of $N_1,N_2$.
+
+We choose the radial exceptional Thom representatives used in \cite{MM}:
+\begin{equation}\label{eq:radial-Thom}
+ \theta_j^{\rm MM}
+ =\frac1{\pi\ii}\,d\!\left(b(r^2)\,\partial\log r^2\right),
+\end{equation}
+where $r$ is the radial coordinate on $\C^2$ in the resolution model
+$Y\to\C^2/\{\pm1\}$, and $\partial$ is the Dolbeault $(1,0)$ operator in
+those complex coordinates.  The function $b:[0,\infty)\to\R$ is smooth
+and nondecreasing, equals $-1$ for
+$s\leq\epsilon^2$, and equals $0$ for $s\geq4\epsilon^2$.  The form
+$\theta_j^{\rm MM}$ integrates to one on the normal fibre
+$\C/\{\pm1\}$ of the exceptional divisor.  Near that divisor it is the
+pullback of a two-form on $\CP^1$, so
+$(\theta_j^{\rm MM})^2$ vanishes on a neighborhood of the divisor.  On the
+complement of the divisor, we transport the square through the blowdown
+diffeomorphism.  Since it vanishes near the divisor, the transported form
+extends by zero across $N_j$ and defines the smooth compactly supported
+form $r_*((\theta_j^{\rm MM})^2)$ on $X$.  We choose the radial cutoff in
+\eqref{eq:radial-Thom} sufficiently small that this support is contained in
+the already fixed $V_j$; the form $\upsilon_j$ is supported there as well.
+Fibre integration and the self-intersection number of
+$\mathcal O_{\CP^1}(-2)$ give
+\begin{equation}\label{eq:radial-Thom-square}
+ [r_*((\theta_j^{\rm MM})^2)]
+ =-2\operatorname{Th}[N_j]\qquad\text{in }H_c^4(V_j).
+\end{equation}
+Equation \eqref{eq:half-Thom} gives the exact compactly supported
+cohomology calculation in $H_c^4(V_j)$
+\[
+ [r_*((\theta_j^{\rm MM})^2)+4\upsilon_j]
+ =-2\operatorname{Th}[N_j]+4\cdot\frac12\operatorname{Th}[N_j]=0.
+\]
+By compactly supported de~Rham theory on the orbifold chart, there are
+three-forms $\mu_j\in\Omega_c^3(V_j)$, extended by zero to $X$, such that
+\[
+ d\mu_j=r_*((\theta_j^{\rm MM})^2)+4\upsilon_j,
+ \qquad j=3,7.
+\]
+The transported square and the annular representative $\upsilon_j$ both
+vanish on a sufficiently small neighborhood of $N_j$.  Thus $d\mu_j=0$
+there.  We denote the radial tubular homotopy operator by $H_j$.  Its
+homotopy identity reduces on this neighborhood to
+\[
+ \mu_j-\pi_j^*(\mu_j|_{N_j})=dH_j\mu_j.
+\]
+We choose a cutoff $\chi_j^{\rm cut}$ that is supported in this
+neighborhood and equals one on a smaller neighborhood.  Replacing $\mu_j$
+by
+\[
+ \mu_j-d(\chi_j^{\rm cut}H_j\mu_j)
+\]
+does not change $d\mu_j$ and gives
+$\mu_j=\pi_j^*(\mu_j|_{N_j})$ on the smaller neighborhood.  We retain the
+notation $\mu_j$ for the modified form.  The cutoff correction is supported
+in $V_j$, so the modified form still belongs to $\Omega_c^3(V_j)$.  Its
+normal-pullback form implies
+that $r^*\mu_j$ extends smoothly across the exceptional divisor.  Likewise
+$r^*\alpha_{\mathcal C}$ is smooth:
+it is zero near every $N_j$, $3\le j\le10$, and is the pullback of a form
+on the centre near $N_1,N_2$.  Finally,
+\begin{equation}\label{eq:pull-push-square}
+ r^*r_*((\theta_j^{\rm MM})^2)=(\theta_j^{\rm MM})^2,
+\end{equation}
+because both sides vanish near $E_j$ and $r$ is a diffeomorphism on their
+remaining support.  Hence
+\begin{equation}\label{eq:etaMM-construction}
+ \eta_{\rm MM}=r^*(\mu_7+4\alpha_{\mathcal C}-\mu_3)
+\end{equation}
+is smooth.  The supports of $\mu_3,\mu_7$ are disjoint from the first two
+resolution neighborhoods because the four tubular neighborhoods were
+chosen pairwise disjoint.  Thus \eqref{eq:cobordism-primitive} gives
+\[
+ \eta_{\rm MM}|_{\operatorname{supp}\theta_1^{\rm MM}}
+ =-4\operatorname{pr}_1^*(\varphi|_{N_1}),\qquad
+ \eta_{\rm MM}|_{\operatorname{supp}\theta_2^{\rm MM}}
+ = 4\operatorname{pr}_2^*(\varphi|_{N_2}).
+\]
+The defining equations for $\mu_3$, $\mu_7$, and
+$\alpha_{\mathcal C}$ give
+\begin{align*}
+d\eta_{\rm MM}
+ &=r^*\bigl(d\mu_7+4d\alpha_{\mathcal C}-d\mu_3\bigr)\\
+ &=r^*\bigl(r_*((\theta_7^{\rm MM})^2)+4\upsilon_7
+       +4(\upsilon_3-\upsilon_7)
+       -r_*((\theta_3^{\rm MM})^2)-4\upsilon_3\bigr)\\
+ &=(\theta_7^{\rm MM})^2-(\theta_3^{\rm MM})^2.
+\end{align*}
+The last equality follows from \eqref{eq:pull-push-square}.
+The restrictions above and the supported Thom product formula then give
+\begin{equation}\label{eq:MM-primitive-data}
+[\eta_{\rm MM}\theta_1^{\rm MM}]=-4v_1,\qquad
+[\eta_{\rm MM}\theta_2^{\rm MM}]=4v_2.
+\end{equation}
+Thus the explicitly computed class is
+\begin{equation}\label{eq:YMM}
+Y_{\rm MM}
+=[\eta_{\rm MM}(\theta_1^{\rm MM}+\theta_2^{\rm MM})]
+=-4v_1+4v_2.
+\end{equation}
+With the convention \eqref{eq:Massey-coset}, the corresponding
+defining-system representative is $-Y_{\rm MM}$; this sign does not affect
+membership in the vector subspace $I_M$.
+The projection of the \emph{entire} degree-five indeterminacy
+$aH^3(M)+H^3(M)c$ to the exceptional summands is contained in
+\begin{equation}\label{eq:indet-projection}
+\operatorname{span}\{v_1+v_2,v_7-v_3\}.
+\end{equation}
+Indeed, if $\xi\in H^3(X)$, then
+$\xi x_j=(\xi|_{N_j})x_j$.  We now perform the restriction calculation
+explicitly.  Every such class has a representative
+\begin{equation}\label{eq:H3X-normal-form}
+ \xi=dt\wedge\beta_2
+ +\lambda_1(dz_{123}+d\bar z_{123})
+ +\lambda_2\bigl(dz_1\wedge dz_2\wedge d\bar z_3
+ +d\bar z_1\wedge d\bar z_2\wedge dz_3\bigr),
+\end{equation}
+where $\beta_2$ is a constant closed two-form on the flat cover satisfying
+$F^*\beta_2=\beta_2$ and $\kappa^*\beta_2=-\beta_2$.
+The $dt$ term restricts to zero.  Substitution of the component
+parametrizations from \eqref{eq:component-lifts} gives, on their chosen
+twofold covers,
+\begin{align*}
+ \xi|_{N_1^1}&=4(\lambda_1-\lambda_2)\,
+ dx_1\wedge dx_2\wedge dy_3,&
+ \varphi|_{N_1^1}&=2\,dx_1\wedge dx_2\wedge dy_3,\\
+ \xi|_{N_2^1}&=-4(\lambda_1-\lambda_2)\,
+ dx_1\wedge dx_2\wedge dy_3,&
+ \varphi|_{N_2^1}&=-2\,dx_1\wedge dx_2\wedge dy_3,\\
+ \xi|_{N_3^1}&=2(\lambda_1+\lambda_2)\,
+ dx_1\wedge dx_2\wedge dx_3,&
+ \varphi|_{N_3^1}&=dx_1\wedge dx_2\wedge dx_3,\\
+ \xi|_{N_7^1}&=-2(\lambda_1+\lambda_2)\,
+ dy_1\wedge dy_2\wedge dx_3,&
+ \varphi|_{N_7^1}&=-dy_1\wedge dy_2\wedge dx_3.
+\end{align*}
+Passing through the twofold covers changes both integrals by the same
+factor.  Since
+$H^3(N_j)=\R[\varphi|_{N_j}]$, the scalars are therefore
+\begin{equation}\label{eq:restriction-scalars}
+ \lambda_{12}(\xi)=2(\lambda_1-\lambda_2),\qquad
+ \lambda_{37}(\xi)=2(\lambda_1+\lambda_2),
+\end{equation}
+and
+\begin{align*}
+[\xi|_{N_1}]&=\lambda_{12}(\xi)[\varphi|_{N_1}],&
+[\xi|_{N_2}]&=\lambda_{12}(\xi)[\varphi|_{N_2}],\\
+[\xi|_{N_3}]&=\lambda_{37}(\xi)[\varphi|_{N_3}],&
+[\xi|_{N_7}]&=\lambda_{37}(\xi)[\varphi|_{N_7}].
+\end{align*}
+Consequently
+\begin{equation}\label{eq:base-indet-projection}
+\pi_E(a\xi)=\lambda_{12}(\xi)(v_1+v_2),\qquad
+\pi_E(\xi c)=\lambda_{37}(\xi)(v_7-v_3).
+\end{equation}
+For the remaining terms, decompose an arbitrary class as
+$h=\xi+\sum_j\lambda_jx_j\in H^3(M)$, with
+$\xi\in H^3(X)$ and $\lambda_j\in H^1(N_j)$.  The supported representative
+product rule of \cite[Section 3]{MM} is
+\begin{equation}\label{eq:pushforward-product}
+(\lambda x_j)x_j=-2(i_j)_!\lambda\in H^5(X),
+\qquad i_j:N_j\hookrightarrow X,
+\end{equation}
+while $(\lambda x_j)x_k=0$ for $j\ne k$.  Hence these products have zero
+exceptional projection.  More explicitly, multiplication by
+$a=x_1+x_2$ can involve only the exceptional terms with $j=1,2$, and
+multiplication by $c=x_7-x_3$ can involve only those with $j=3,7$.
+Formula \eqref{eq:pushforward-product} places every resulting square in
+the base summand $H^5(X)$, so none contributes to $\pi_E$.  Together with
+\eqref{eq:base-indet-projection}, this proves
+\eqref{eq:indet-projection}.  Finally, if
+\[
+-4v_1+4v_2=A(v_1+v_2)+B(v_7-v_3),
+\]
+the independent $v_1$ and $v_2$ coordinates in \eqref{eq:MM-cohom} would
+give simultaneously $A=-4$ and $A=4$, which is impossible.  Therefore
+$Y_{\rm MM}\notin I_M$, and likewise $-Y_{\rm MM}\notin I_M$.  Hence
+\[
+ 0\notin\langle a,b,c\rangle.
+\]
+\end{proof}
+
+Lemma~\ref{lem:tau-lift} gives
+\begin{equation}\label{eq:parities}
+\widetilde\tau^*a=-a,\qquad \widetilde\tau^*b=b,\qquad
+\widetilde\tau^*c=c.
+\end{equation}
+We choose pairwise disjoint tubular neighborhoods of the exceptional
+divisors that are invariant as a collection under $\widetilde\tau$.  We
+choose a normalized Thom form $\theta_2$ representing $x_2$ and define
+$\theta_1=-\widetilde\tau^*\theta_2$; equation \eqref{eq:tau-x} shows that
+$\theta_1$ represents $x_1$.  For each $j\in\{3,7\}$, we average a
+normalized Thom form with its pullback under $\widetilde\tau$.  The
+resulting form, still denoted by $\theta_j$, is normalized and represents
+$x_j$.  These forms satisfy
+\begin{equation}\label{eq:thom-parities}
+\widetilde\tau^*\theta_1=-\theta_2,\qquad
+\widetilde\tau^*\theta_2=-\theta_1,\qquad
+\widetilde\tau^*\theta_j=\theta_j\ (j=3,7).
+\end{equation}
+We define
+\begin{equation}\label{eq:forms-abc}
+\alpha=\theta_1+\theta_2,\qquad \beta=\theta_7+\theta_3,\qquad
+\gamma=\theta_7-\theta_3.
+\end{equation}
+The disjoint supports give $\alpha\beta=0$, while
+$\beta\gamma=\theta_7^2-\theta_3^2$ is exact by
+$\PD[N_7]=\PD[N_3]$.  We choose a three-form $\eta_0$ satisfying
+$d\eta_0=\beta\gamma$ and replace it by
+\begin{equation}\label{eq:eta-average}
+\eta=\tfrac12(\eta_0+\widetilde\tau^*\eta_0).
+\end{equation}
+Since $\beta\gamma$ is invariant, $d\eta=\beta\gamma$ and
+$\widetilde\tau^*\eta=\eta$.  Moreover
+$d(\alpha\eta)=\alpha\beta\gamma=0$.  Under the convention
+\eqref{eq:Massey-coset}, the defining system
+$(\xi_{12},\xi_{23})=(0,\eta)$ has representative $-\alpha\eta$.
+Replacing the normalized Thom representatives or replacing a primitive by
+another one changes this class by
+$aH^3(M)+H^3(M)c=I_M$, exactly as in
+\eqref{eq:general-indeterminacy}.  Thus the averaged system and the
+explicit system \eqref{eq:MM-primitive-data} define representatives in the
+same affine Massey coset.  Equivalently, their cohomology classes differ by
+an element of $I_M$.
+Proposition~\ref{prop:MM-Massey} therefore gives
+$-[\alpha\eta]\notin I_M$.  Since $I_M$ is a vector subspace, we define
+\begin{equation}\label{eq:Y-def}Y=[\alpha\eta]\in H^5(M).\end{equation}
+Then $Y\notin I_M$, and
+$\widetilde\tau^*Y=[(-\alpha)\eta]=-Y$.
+
+\subsection{The quotient CDGA and its indeterminacy}
+\begin{lemma}\label{lem:finite-quotient-CDGA}
+Suppose that a finite group $\Gamma$ acts smoothly on a compact manifold
+$P$, and denote the quotient map by $q:P\to P/\Gamma$.  With real coefficients,
+pullback is a quasi-isomorphism
+\begin{equation}\label{eq:APL-invariants}
+q^*:A_{\rm PL}(P/\Gamma;\R)\longrightarrow
+A_{\rm PL}(P;\R)^\Gamma.
+\end{equation}
+\end{lemma}
+\begin{proof}
+By the equivariant triangulation theorem for smooth finite-group actions
+\cite{Illman},
+$P$ admits a finite $\Gamma$-CW structure.  The image in $P/\Gamma$ of an
+equivariant cell $\Gamma/H\times D^n$ is the ordinary cell $D^n$, whereas
+the corresponding piece of the Borel construction is $BH\times D^n$.
+The map from the Borel construction to the orbit space restricts over this
+cell to the projection $BH\times D^n\to D^n$.  Since $H$ is finite,
+$H^q(BH;\R)=0$ for $q>0$ and $H^0(BH;\R)=\R$.  Induction over the relative
+cohomology sequences of the cellular skeleta shows that
+$P_{h\Gamma}\to P/\Gamma$ is a real cohomology equivalence.  Equivalently,
+the Leray spectral sequence has higher stalk at the orbit of $p$ equal to
+$H^q(B\Gamma_p;\R)=0$ for every $q>0$.
+
+Let $\pi_h:P_{h\Gamma}\to P/\Gamma$ be the preceding map.  Fix
+$e\in E\Gamma$ and define $j_e:P\to P_{h\Gamma}$ by
+$j_e(p)=[e,p]$.  Then $\pi_h\circ j_e=q$.  The Borel spectral sequence has
+\[
+E_2^{r,s}=H^r(\Gamma;H^s(P;\R)).
+\]
+Higher finite-group cohomology vanishes in characteristic zero, so it
+collapses, and its edge homomorphism $j_e^*$ is an isomorphism from
+$H^*(P_{h\Gamma};\R)$ onto $H^*(P;\R)^\Gamma$.  Since $\pi_h^*$ is an
+isomorphism by the preceding skeletal argument and
+$q^*=j_e^*\pi_h^*$, pullback gives
+\[
+q^*:H^*(P/\Gamma;\R)\xrightarrow{\ \cong\ }H^*(P;\R)^\Gamma.
+\]
+The Reynolds operator makes invariants exact, whence
+\[
+H^*(A_{\rm PL}(P;\R)^\Gamma)=H^*(A_{\rm PL}(P;\R))^\Gamma.
+\]
+This proves \eqref{eq:APL-invariants}.  The simplicial de~Rham theorem
+\cite{BG,Dupont}, applied to the
+smooth singular simplicial set and followed by exact finite-group
+invariants, identifies this model with $\Omega(P)^\Gamma$ through a
+zigzag of CDGA quasi-isomorphisms.
+
+Finally, if $f:A\to B$ is a quasi-isomorphism of CDGAs, then for every
+defined triple product
+\[
+H(f)\bigl(\langle a_1,a_2,a_3\rangle_A\bigr)
+=\langle H(f)a_1,H(f)a_2,H(f)a_3\rangle_B.
+\]
+Indeed, $f$ carries one defining system to a defining system.  Both sides
+are nonempty affine cosets, and $H(f)$ maps the entire indeterminacy
+isomorphically by \eqref{eq:general-indeterminacy}; hence the initial
+inclusion is equality.  Thus the two full Massey sets correspond under
+$H(f)$.
+\end{proof}
+
+We denote the quotient map by $q:W=S^1\times M\to Z_0$.  The preceding lemma and
+the equivariant simplicial de~Rham comparison give the explicit zigzag
+\begin{equation}\label{eq:quotient-zigzag}
+ A_{\rm PL}(Z_0;\R)\xrightarrow{\ q^*\ }
+ A_{\rm PL}(W;\R)^{\langle\sigma\rangle}
+ \xrightarrow{\ \simeq\ }
+ A_{\rm dR}(\operatorname{Sing}^{\infty}W)^{\langle\sigma\rangle}
+ \xleftarrow{\ \simeq\ }\Omega(W)^{\langle\sigma\rangle}.
+\end{equation}
+Here $A_{\rm dR}(\operatorname{Sing}^{\infty}W)$ is the CDGA of compatible
+smooth forms on smooth singular simplices.  The left comparison includes
+polynomial simplex forms and the right comparison pulls a differential
+form back to every smooth simplex.  Both are natural
+quasi-isomorphisms; taking invariants preserves this because the Reynolds
+operator is exact.
+Thus differential forms below live in the right-hand invariant de~Rham
+model; their classes and their entire Massey cosets are transported to
+$A_{\rm PL}(Z_0;\R)$ through \eqref{eq:quotient-zigzag}.  No de~Rham complex
+on the singular quotient is being assumed.  More precisely, when an
+invariant differential-form defining system is used below, equality of
+Massey sets under the quasi-isomorphisms in the zigzag places the class of
+its representative in the corresponding Massey set in
+$A_{\rm PL}(Z_0;\R)$.  By the definition of that set, we then choose an
+actual $A_{\rm PL}(Z_0;\R)$ defining system realizing the transported
+class.
+
+We write $u=[ds]\in H^1(S^1)$.  This class does not itself descend.  If
+$\xi\in H^*(M)^-$, we write $u\xi$ for the unique quotient class whose
+pullback to $S^1\times M$ is $[ds]\otimes\xi$.  The invariant ring
+decomposition is
+\begin{equation}\label{eq:quotient-cohom}
+H^k(Z_0)=H^k(M)^+\oplus uH^{k-1}(M)^-.
+\end{equation}
+Here the superscripts denote the $\pm1$ eigenspaces of
+$\widetilde\tau^*$.
+Multiplication is inherited from $H^*(S^1\times M)$, in particular $u^2=0$.
+The invariant forms on $W$
+\begin{equation}\label{eq:ABC-forms}
+\mathsf A=ds\wedge\alpha,\qquad \mathsf B=\beta,\qquad \mathsf C=\gamma
+\end{equation}
+have degrees $(3,2,2)$, with $\mathsf A\mathsf B=0$ and
+$\mathsf B\mathsf C=d\eta$.  Thus the triple product
+$\langle ua,b,c\rangle$ is defined.  The defining system
+$(\xi_{12},\xi_{23})=(0,\eta)$ has representative
+\[
+0\cdot\mathsf C-(-1)^3\mathsf A\eta
+=ds\wedge\alpha\wedge\eta,
+\]
+whose cohomology class corresponds to $uY\in H^6(Z_0)$ under
+\eqref{eq:quotient-zigzag}.  Consequently there are closed elements
+$\mathsf A_0,\mathsf B_0,\mathsf C_0\in A_{\rm PL}(Z_0;\R)$ representing
+$ua,b,c$, respectively, and elements $\xi_{12}^0,\xi_{23}^0$ such that
+\begin{align}
+ d\xi_{12}^0&=\mathsf A_0\mathsf B_0,&
+ d\xi_{23}^0&=\mathsf B_0\mathsf C_0,
+ \label{eq:APL-defining-system}\\
+ \left[\xi_{12}^0\mathsf C_0-(-1)^3
+ \mathsf A_0\xi_{23}^0\right]&=uY\in H^6(Z_0;\R).
+ \label{eq:APL-representative}
+\end{align}
+We fix this $A_{\rm PL}$ defining system for the remainder of the proof.
+
+\begin{proposition}\label{prop:quotient-Massey}
+The triple Massey product $\langle ua,b,c\rangle$ is defined, and
+\begin{equation}\label{eq:quotient-nonzero}0\notin\langle ua,b,c\rangle.\end{equation}
+\end{proposition}
+\begin{proof}
+In the two degrees entering the indeterminacy,
+\[
+H^3(Z_0)=H^3(M)^+\oplus uH^2(M)^-,\qquad
+H^4(Z_0)=H^4(M)^+\oplus uH^3(M)^-.
+\]
+Since $u^2=0$, the two summands multiply as
+\[
+(ua)H^3(Z_0)=u\,aH^3(M)^+,\qquad
+H^4(Z_0)c=H^4(M)^+c\oplus uH^3(M)^-c.
+\]
+The full indeterminacy is
+\begin{align}
+I_0&=(ua)H^3(Z_0)+H^4(Z_0)c\label{eq:I0-first}\\
+&=H^4(M)^+c+u\bigl(aH^3(M)^++H^3(M)^-c\bigr).\label{eq:I0-decomp}
+\end{align}
+If $uY\in I_0$, projection to the $u$-summand would give
+$Y\in aH^3(M)^++H^3(M)^-c\subset I_M$, a contradiction.  Thus the affine
+coset $uY+I_0$ does not contain zero.
+\end{proof}
+
+\subsection{Passage through the resolution}
+\begin{lemma}\label{lem:Gysin}
+The space $Z_0$ is a compact oriented real homology eight-manifold, and the
+degree-one map $\rho:\widehat Z\to Z_0$ has homomorphisms
+\[
+\rho_!:H^k(\widehat Z;\R)\longrightarrow H^k(Z_0;\R)
+\qquad(0\leq k\leq8)
+\]
+such that, for every $v\in H^p(Z_0;\R)$ and
+$w\in H^q(\widehat Z;\R)$,
+\begin{equation}\label{eq:Gysin-properties}
+\rho_!\rho^*v=v,\qquad
+\rho_!(\rho^*v\smile w)=v\smile\rho_!(w).
+\end{equation}
+\end{lemma}
+\begin{proof}
+On the dense regular set $\widetilde\tau$ agrees with $\tau$, whose linear
+part has determinant $-1$, so $\widetilde\tau$ reverses orientation.
+Reflection reverses the orientation of $S^1$; hence $\sigma$ preserves the
+orientation of $W$.
+
+We fix $z\in Z_0$ and denote the stabilizer of one of its lifts by
+$H\le\langle\sigma\rangle$.  The exponential map of an $H$-invariant metric gives the usual
+Bochner linearization, so a small link of $z$ is $S^7/H$, with $H$ acting
+linearly through $SO(8)$.  If $H$ is nontrivial, the derivative of its
+generator is $+I$ on the tangent four-plane to the fixed component and
+$-I$ on its normal four-plane; in particular its determinant and its degree
+on $S^7$ are $+1$.  We choose an $H$-equivariant triangulation
+\cite{Illman} and barycentrically subdivide it so that every simplex
+stabilizer fixes that simplex pointwise.  The cellular chain complex of
+the quotient is the coinvariant complex.  Over $\R$, the coinvariant
+functor is exact, and the averaging operator identifies coinvariants with
+invariants.  Therefore
+\[
+ H_*(S^7/H;\R)\cong H_*(S^7;\R)_H
+ \cong H_*(S^7;\R)^H.
+\]
+Every element of $H$ has degree $+1$ on $S^7$, so this vector space is
+$\R$ in degrees $0,7$ and zero otherwise.  Therefore
+\begin{equation}\label{eq:local-homology}
+H_i(Z_0,Z_0\setminus\{z\};\R)
+\cong\widetilde H_{i-1}(S^7/H;\R)
+=\begin{cases}\R,&i=8,\\0,&i\ne8.\end{cases}
+\end{equation}
+The local top generators agree with the quotient orientation.  Thus $Z_0$
+is a compact oriented real homology eight-manifold.  Finite smooth
+quotients are triangulable and locally contractible, so Poincar\'e duality
+for compact oriented ENR homology manifolds
+\cite[Chapter V]{BredonSheaf} applies: $Z_0$ has a
+fundamental class $[Z_0]$ and cap product induces isomorphisms
+\begin{equation}\label{eq:PD-homology-manifold}
+ D_{Z_0}:H^k(Z_0)\longrightarrow H_{8-k}(Z_0),\qquad
+ D_{Z_0}(v)=v\frown[Z_0].
+\end{equation}
+
+We orient $\widehat Z$ by its Cayley orientation.  We choose a point in
+the nonempty common flat open set lying outside every first- and second-stage
+resolution neighborhood.  At that point $\rho$ is the identity under the
+staged/Joyce atlas identification.  The quotient orientation of $Z_0$
+there is the orientation induced by the flat Cayley form $\Phi_0$; the
+Joyce preglued positive form and its sufficiently small torsion-free
+perturbation lie in the same positive Cayley cone and induce that same
+orientation.  This regular point therefore has exactly one preimage and
+local degree $+1$.
+Hence $\rho_*[\widehat Z]=[Z_0]$.  We define
+\begin{equation}\label{eq:Gysin-definition}
+ \rho_!=D_{Z_0}^{-1}\rho_*D_{\widehat Z}.
+\end{equation}
+Cap-product naturality gives the projection formula
+$\rho_!(\rho^*v\smile w)=v\smile\rho_!(w)$.  The fundamental-class
+identity gives $\rho_!(1)=1$; therefore
+\[
+ \rho_!\rho^*v=\rho_!(\rho^*v\smile1)
+ =v\smile\rho_!(1)=v,
+\]
+which proves both identities in \eqref{eq:Gysin-properties}.
+\end{proof}
+
+\begin{theorem}\label{thm:nonformal}
+The triple Massey product
+$\langle\rho^*(ua),\rho^*b,\rho^*c\rangle$ is defined, and
+\begin{equation}\label{eq:final-Massey}
+0\notin\langle\rho^*(ua),\rho^*b,\rho^*c\rangle.
+\end{equation}
+Thus $\widehat Z$ is nonformal.
+\end{theorem}
+\begin{proof}
+The continuous map $\rho$ induces the strict CDGA morphism
+\[
+ \rho^*:A_{\rm PL}(Z_0;\R)\longrightarrow
+ A_{\rm PL}(\widehat Z;\R).
+\]
+Pulling back the defining system fixed in
+\eqref{eq:APL-defining-system}--\eqref{eq:APL-representative} proves that
+the triple product is defined and gives a representative with cohomology
+class $\rho^*(uY)$.  The ordinary de~Rham comparison for the smooth
+manifold $\widehat Z$ carries this entire Massey set to the corresponding
+one in $\Omega(\widehat Z)$.  Its full indeterminacy is
+\begin{equation}\label{eq:Ihat}
+I_{\widehat Z}=\rho^*(ua)H^3(\widehat Z)+H^4(\widehat Z)\rho^*c.
+\end{equation}
+Suppose
+$\rho^*(uY)=\rho^*(ua)r+q\rho^*c$ for
+$r\in H^3(\widehat Z)$ and $q\in H^4(\widehat Z)$.  The projection formula
+and $\rho_!\rho^*=\id$ give
+\[
+uY=(ua)\rho_!(r)+\rho_!(q)c.
+\]
+For the second term, explicitly,
+$\rho_!(q\rho^*c)=\rho_!(\rho^*c\,q)=c\,\rho_!(q)=\rho_!(q)c$; no sign
+occurs because $|q||c|=8$.  The displayed class lies in $I_0$, contrary to
+Proposition~\ref{prop:quotient-Massey}.  Hence
+$\rho^*(uY)\notin I_{\widehat Z}$, so the full affine Massey coset does not
+contain zero.  Every defined Massey product on a formal CDGA
+contains zero, so \eqref{eq:final-Massey} obstructs formality of
+$\widehat Z$.
+\end{proof}
+
+\section{Simple connectivity and exact holonomy}
+\begin{proposition}\label{prop:pi1}
+The manifold $\widehat Z$ is simply connected.
+\end{proposition}
+\begin{proof}
+The manifold $M$ is simply connected \cite[Section 2.2]{MM}; hence
+$\R\times M$ is simply connected.  We define an action on $\R\times M$
+of the infinite dihedral group
+\begin{equation}\label{eq:Dinf}
+D_\infty=\langle S,R\mid R^2=1,\ RSR=S^{-1}\rangle,
+\end{equation}
+by the formulas $S(s,p)=(s+1,p)$ and
+$R(s,p)=(-s,\widetilde\tau p)$.  These formulas satisfy the displayed
+relations and therefore define the asserted action.  The fixed set of
+$\widetilde\tau$ is nonempty.  Indeed, on $\T^7$ we impose
+$t=\frac12$ and $z_3=\frac18$.  The resulting
+$\tau$-fixed slice is a four-torus.  The lift of the old singular set is a
+finite union of three-tori, so it cannot cover the slice.  We choose
+$(z_1,z_2)\in E^2$ in its complement.  The resulting point is fixed by $\tau$.  Its
+image $x\in X$ is regular; because $r$ is a diffeomorphism over the regular
+set, the unique point of $r^{-1}(x)$ is fixed by $\widetilde\tau$.
+Consequently $R$ fixes $(0,p)$ and $SR$ fixes $(\frac12,p)$ in
+$\R\times M$.  The quotient by $\langle S\rangle$ is $S^1\times M$, and
+the residual action of $R$ is precisely $\sigma$; hence
+$(\R\times M)/D_\infty\cong Z_0$.  The space $\R\times M$ is connected,
+simply connected, locally compact, and metrizable.  For every compact
+subset $C\subset\R\times M$, its projection to the $s$-coordinate is
+contained in a bounded interval.  Consequently only finitely many
+integers $n$ satisfy $S^nC\cap C\ne\varnothing$, and only finitely many
+integers $n$ satisfy $S^nRC\cap C\ne\varnothing$.
+No nonidentity translation $S^n$ has a fixed point.  A reflection
+$S^nR$ can fix $(s,p)$ only if $s=n/2$ and
+$\widetilde\tau(p)=p$.  If two reflections $S^nR$ and $S^mR$ fixed the
+same point, then their product $S^{n-m}$ would fix that point, and hence
+$n=m$.  Thus every stabilizer is either trivial or the order-two group
+generated by a unique reflection.
+
+We also verify Armstrong's local discontinuity condition.  Given a point,
+choose a relatively compact neighborhood.  The two compact-intersection
+statements above leave only finitely many group elements whose translates
+can meet its closure.  For each of those finitely many elements that does
+not stabilize the point, shrink the neighborhood so that it is disjoint
+from its translate.  The resulting neighborhood can meet a translate of
+itself only under an element of its finite stabilizer.  Thus the action is
+discontinuous in the precise sense required by
+Armstrong's theorem \cite{Armstrong}, which gives
+\[
+\pi_1(Z_0)=D_\infty/N,
+\]
+where $N$ is normally generated by elements having fixed points.
+Thus $R,SR\in N$, and $S=(SR)R\in N$, proving $\pi_1(Z_0)=1$.
+
+We denote by $Z_{\rm ext}$ the complement of the interiors of mutually
+disjoint conical neighborhoods of the singular components, and we set
+$F=\Fix(\sigma)\subset W$.  Since $F$ has codimension four in the connected
+manifold $W$, ordinary relative transversality shows that $W\setminus F$
+is path connected.  Its quotient is the regular locus of $Z_0$.  Radial
+deformation in each punctured cone fibre moves paths out of the deleted
+tubular interiors and onto their boundaries; hence $Z_{\rm ext}$ is path
+connected.  We choose a basepoint in $Z_{\rm ext}$ and compatible
+basepaths to the boundary components.  For one component $B$ of $F$, which
+we identify with its image in $Z_0$, we denote
+the boundary $\RP^3$-bundle by $L\to B$, the cone bundle by $P_0\to B$,
+and the truncated Eguchi--Hanson bundle by $P_1\to B$; the latter is the
+bundle in \eqref{eq:associated-EH-bundle}.  Their fibres are
+$\RP^3$, $C(\RP^3)$, and the disc bundle of
+$\mathcal O_{\CP^1}(-2)$, respectively.  The last two fibres are connected
+and simply connected.  The homotopy exact sequences therefore give
+isomorphisms
+\[
+(p_i)_*:\pi_1(P_i)\xrightarrow{\ \cong\ }\pi_1(B),\qquad i=0,1.
+\]
+If $j_i:L\to P_i$ are the boundary inclusions and $p_L:L\to B$ is the
+projection, then $(p_i)_*(j_i)_*=(p_L)_*$.  After identifying both
+$\pi_1(P_i)$ with $\pi_1(B)$ by $(p_i)_*$, the two boundary homomorphisms
+are therefore the same homomorphism $(p_L)_*$.  This argument neither assumes that
+$\pi_1(\RP^3)\to\pi_1(L)$ is injective nor ignores monodromy.  Van Kampen
+applies to open collar thickenings of $Z_{\rm ext}$ and $P_i$, whose
+intersection deformation retracts onto $L$, and gives the pushouts
+\begin{equation}\label{eq:pi1-pushouts}
+ \pi_1(Z_{\rm ext}\cup_LP_i)
+ \cong \pi_1(Z_{\rm ext})*_{\pi_1(L)}\pi_1(P_i),
+ \qquad i=0,1,
+\end{equation}
+with identical structure maps after the preceding identifications.  The
+fibrewise construction in Lemma~\ref{lem:two-stage} glues $P_1$ to
+$Z_{\rm ext}$ by the same fixed boundary identification used to glue
+$P_0$.  Therefore the two groups in
+\eqref{eq:pi1-pushouts} are isomorphic through the specified basepoint,
+basepath, and bundle-projection identifications.
+
+A compact smooth fixed set has finitely many components.  Enumerate them
+as $B_1,\ldots,B_k$.  For $0\leq j\leq k$, let $Z^{(j)}$ be the space in
+which the cone bundles over $B_1,\ldots,B_j$ have been replaced by their
+truncated Eguchi--Hanson bundles, while the cone bundles over the remaining
+components have not been replaced.  Choose all basepaths in the common
+exterior.  Applying the one-component pushout calculation to
+$Z^{(j-1)}$ and $Z^{(j)}$ gives an isomorphism
+$\pi_1(Z^{(j-1)})\cong\pi_1(Z^{(j)})$ through those specified
+identifications.  Induction on $j$ therefore gives
+$\pi_1(\widehat Z)\cong\pi_1(Z_0)=1$.
+\end{proof}
+
+\begin{theorem}\label{thm:full-holonomy}
+For every sufficiently small $t>0$, the metric
+$g_t=g_{\widehat\Phi_t}$ has full Riemannian holonomy
+$\Hol(\widehat Z,g_t)=\SpinSeven$.
+\end{theorem}
+\begin{proof}
+We fix a sufficiently small $t$ and set $g_t=g_{\widehat\Phi_t}$.  A
+torsion-free $\SpinSeven$ structure makes $g_t$ Ricci-flat and determines a
+parallel unit positive spinor.
+Since $\widehat Z$ is compact, $g_t$ is complete.  Since $\widehat Z$ is
+simply connected, full and restricted holonomy agree.  Moreover,
+$\pi_1(\widehat Z)=0$ implies $H_1(\widehat Z;\Z)=0$ by abelianization,
+and the universal coefficient theorem gives
+$H^1(\widehat Z;\R)=0$.  A parallel vector would dualize to a nonzero
+parallel one-form.  Such a form is harmonic and represents a nonzero
+cohomology class, which is impossible.  Hence the de Rham decomposition
+has no Euclidean factor.
+
+The global de Rham decomposition theorem applies because
+$(\widehat Z,g_t)$ is complete and simply connected.  Since there is no
+Euclidean factor, it gives a Riemannian product
+\[
+ (\widehat Z,g_t)=(X_1,g_1)\times\cdots\times(X_r,g_r)
+\]
+of irreducible, complete, simply connected, nonflat factors.  Each $X_i$
+is spin: restricting $w_2(T\widehat Z)=0$ to $X_i$ times basepoints in the
+other factors gives $w_2(TX_i)=0$.  We denote the restricted
+holonomy group of $X_i$ by $H_i\subset SO(n_i)$.  The factor spin
+structure determines its connected spin-holonomy lift
+$\widetilde H_i\subset\operatorname{Spin}(n_i)$.
+
+Under the standard homomorphism
+$\operatorname{Spin}(n_1)\times\cdots\times\operatorname{Spin}(n_r)
+\to\operatorname{Spin}(8)$, the restriction of
+the complex positive spin module is a finite direct sum of external
+tensor products of complex factor spin modules.  More explicitly, an
+odd-dimensional factor contributes its irreducible complex spin module,
+an even-dimensional factor contributes one of its two half-spin modules,
+and the parity constraint selects the summands; when two odd-dimensional
+factors are combined, the usual two parity summands occur.  This is the
+standard branching rule for complex Clifford modules, and every projection
+onto one of the displayed tensor summands is equivariant for
+$\widetilde H_1\times\cdots\times\widetilde H_r$.
+Therefore the parallel positive spinor has a nonzero invariant component
+in at least one tensor summand.  If $\Delta_i$ denotes the factor spin or
+half-spin module occurring in that summand, then
+\[
+ (\Delta_1\otimes\cdots\otimes\Delta_r)
+ ^{\widetilde H_1\times\cdots\times\widetilde H_r}
+ =\Delta_1^{\widetilde H_1}\otimes\cdots\otimes
+   \Delta_r^{\widetilde H_r}.
+\]
+The nonzero invariant component therefore implies
+$\Delta_i^{\widetilde H_i}\ne0$ for every $i$.  By the holonomy
+principle, every factor $X_i$ therefore admits a nonzero parallel spinor.
+
+The Berger--Simons--Wang classification \cite{Wang} now applies to each
+factor.  An irreducible nonsymmetric factor with a parallel spinor has
+holonomy $SU(m)$, $Sp(k)$, $G_2$, or $\SpinSeven$ in real dimension $2m$,
+$4k$, $7$, or $8$, respectively.  An irreducible locally symmetric space
+is Einstein with nonzero Einstein constant unless it is Euclidean.
+Consequently an irreducible Ricci-flat symmetric factor is flat and has
+already been excluded.  The remaining dimension possibilities are
+\[
+\begin{array}{c|c|c}
+\text{factor dimension}&\text{nonflat parallel-spinor holonomy}
+ &\text{required complementary dimension}\\
+\hline
+8&\SpinSeven,\ SU(4),\ Sp(2)&0\\
+7&G_2&1\text{ (flat)}\\
+6&SU(3)&2\text{ (flat)}\\
+4&Sp(1)&4.
+\end{array}
+\]
+The Wang list has no nonflat irreducible factor in dimension five, and
+Ricci-flat factors of dimensions one, two, or three are flat.
+Consequently a six- or seven-dimensional factor forces a flat
+two- or one-dimensional complement.  Without a flat factor, the only possibilities are
+one eight-dimensional factor with holonomy $\SpinSeven$, $SU(4)$, or
+$Sp(2)$, or two four-dimensional factors with holonomy
+$Sp(1)\times Sp(1)$.  The de Rham product above is global, and full
+holonomy equals restricted holonomy because $\widehat Z$ is simply
+connected.  Thus no factor-permuting or other disconnected extension of
+these connected holonomy groups occurs.
+
+The projection of the compact product $\widehat Z$ onto each de Rham
+factor is surjective, so every factor is compact.
+Holonomy $SU(4)$ is K\"ahler, and holonomy $Sp(2)$ is hyperk\"ahler.  In
+the $Sp(1)\times Sp(1)$ case, de Rham gives a product of two compact
+hyperk\"ahler four-manifolds, which is again K\"ahler.  Every compact
+K\"ahler manifold is formal by \cite{DGMS}, contradicting
+Theorem~\ref{thm:nonformal}.  Therefore
+$\Hol(\widehat Z,g_t)=\SpinSeven$.
+\end{proof}
+
+Under the identification of Lemma~\ref{lem:two-stage}, the map appearing
+in Theorem~\ref{thm:main} is
+\[
+ \pi=q_0\circ\rho:\widehat Z\longrightarrow\mathcal O.
+\]
+It is the same map as the Joyce blowdown
+\eqref{eq:Joyce-blowdown}.  Its properness was proved immediately after
+\eqref{eq:Joyce-blowdown}, and the local model is the identity over the
+regular stratum, so it is a diffeomorphism over the regular locus.
+Let $\varepsilon_{\rm J}$ be the upper bound supplied by
+Theorem~\ref{thm:Joyce-existence}, and let $\varepsilon_{\rm H}$ be the
+smallness bound in Theorem~\ref{thm:full-holonomy}.  Taking
+$\varepsilon=\min\{\varepsilon_{\rm J},\varepsilon_{\rm H}\}$ makes the
+existence and full-holonomy conclusions hold for every
+$0<t<\varepsilon$.  Theorem~\ref{thm:nonformal} and
+Proposition~\ref{prop:pi1} supply the remaining two assertions.  This
+proves Theorem~\ref{thm:main}.
+
+\appendix
+\section{Lean formalization of the algebraic deductions}\label{app:lean}
+
+The formalization encodes the algebraic implications used in the Massey,
+fundamental-group, and holonomy arguments.  The geometric statements proved
+in the body of the paper enter through explicitly named hypotheses.
+
+\subsection{Affine cosets and the exceptional-coordinate obstruction}
+
+Let $V$ be an abelian group, let $I\leq V$, and let
+\[
+ \mathcal C(y,I)=y+I=\{y+i:i\in I\}.
+\]
+The definitions \texttt{AdditiveCore}, \texttt{AdditiveSubset}, and
+\texttt{affineCoset} encode these data.  The theorem
+\texttt{zero\_mem\_affineCoset\_iff} proves
+\begin{equation}\label{eq:lean-coset}
+ 0\in\mathcal C(y,I)\quad\Longleftrightarrow\quad y\in I.
+\end{equation}
+Indeed, an equality $0=y+i$ with $i\in I$ gives $y=-i\in I$, and the
+converse follows from $0=y+(-y)$.  Consequently, the theorem
+\texttt{full\_affine\_coset\_exclusion} proves
+\[
+ y\notin I\quad\Longrightarrow\quad 0\notin\mathcal C(y,I).
+\]
+If $y'\in y+I$ and $y\notin I$, then $y'\notin I$ as well.  This implication
+is the theorem
+\[
+ \text{\texttt{translated\_representative\_exclusion}}.
+\]
+
+For the exceptional projection in Section~5, write the coordinates in the
+order $(v_1,v_2,v_3,v_7)$.  The projected indeterminacy is
+\begin{equation}\label{eq:lean-coordinate-subspace}
+ J=\{(A,A,-B,B):A,B\in\R\},
+\end{equation}
+whereas the projected representative is
+\[
+ y_{\rm MM}=(-4,4,0,0).
+\]
+If $y_{\rm MM}\in J$, its first two coordinates give $A=-4$ and $A=4$.
+Thus $y_{\rm MM}\notin J$.  The theorem
+\texttt{unequal\_coordinate\_certificate} proves this implication for an
+arbitrary coefficient type from the inequality of the two coordinates,
+and \texttt{yMM\_not\_in\_projected\_indeterminacy} gives the corresponding
+decidable calculation over $\Z$.  The theorem
+\texttt{exclusion\_by\_projection} then lifts the coordinate obstruction
+from $J$ to the full indeterminacy subgroup.
+
+\subsection{Passage through the quotient and the resolution}
+
+The quotient step is expressed by groups $V,Q$, maps
+$\iota_u:V\to Q$ and $p_u:Q\to V$, and indeterminacy subgroups
+$I_V\leq V$ and $I_Q\leq Q$.  The hypotheses are
+\begin{equation}\label{eq:lean-quotient-hypotheses}
+ p_u\iota_u=\id_V,\qquad p_u(I_Q)\subseteq I_V.
+\end{equation}
+The theorem \texttt{quotient\_indeterminacy\_transfer} proves
+\begin{equation}\label{eq:lean-quotient-transfer}
+ y\notin I_V\quad\Longrightarrow\quad \iota_u(y)\notin I_Q.
+\end{equation}
+This is the formal counterpart of projection to the $u$-summand in
+Proposition~\ref{prop:quotient-Massey}.
+
+For the resolution step, let $\rho^*:Q\to R$ and $\rho_!:R\to Q$ satisfy
+\begin{equation}\label{eq:lean-gysin-hypotheses}
+ \rho_!\rho^*=\id_Q,\qquad \rho_!(I_R)\subseteq I_Q.
+\end{equation}
+The structure \texttt{GysinFormulaData} records separately the two terms
+in the triple-product indeterminacy and the corresponding projection
+formulas.  The theorems \texttt{gysin\_maps\_full\_indeterminacy} and
+\texttt{gysin\_indeterminacy\_transfer} prove
+\begin{equation}\label{eq:lean-gysin-transfer}
+ q\notin I_Q\quad\Longrightarrow\quad \rho^*q\notin I_R.
+\end{equation}
+The structure \texttt{MasseyPipelineInput} combines
+\eqref{eq:lean-coset}--\eqref{eq:lean-gysin-transfer}.  Its conclusion is
+the theorem
+\[
+ \text{\texttt{full\_massey\_coset\_excludes\_zero}},
+\]
+which states that zero is absent from the full Massey coset on the resolved
+space.
+
+\subsection{The dihedral and holonomy deductions}
+
+The infinite dihedral group is represented in normal form by
+\[
+ D_\infty=\{S^n:n\in\Z\}\sqcup\{S^nR:n\in\Z\},
+ \qquad R^2=1,\qquad RSR=S^{-1}.
+\]
+If a normal subgroup $N\triangleleft D_\infty$ contains $R$ and $SR$, then
+$S=(SR)R\in N$.  Hence $S^n\in N$ and $S^nR\in N$ for every $n\in\Z$, so
+$N=D_\infty$.  This is the theorem \texttt{DInf.normal\_generation}; the
+structure \texttt{ArmstrongInput} combines it with the hypotheses of
+Armstrong's theorem and the invariance of the fundamental group under the
+fibrewise resolution.
+
+The toric calculation is encoded using doubled support values.  From
+$0<\ell$ and $2\ell<L$, the theorem
+\texttt{toric\_support\_sign\_certificate} proves
+\[
+ -(0+0-2\ell)=2\ell>0,
+ \qquad
+ -(\ell+\ell-L)=L-2\ell>0.
+\]
+These are the two forms of wall pairing needed in Section~3.2.
+
+Finally, the formalized holonomy alternative is
+\[
+ \SpinSeven,\qquad SU(4),\qquad Sp(2),\qquad Sp(1)\times Sp(1).
+\]
+The three proper alternatives imply that the manifold is K\"ahler, and
+the DGMS theorem then implies formality.  Under the hypothesis of
+nonformality, \texttt{holonomy\_alternative\_elimination} therefore selects
+$\SpinSeven$.
+
+\subsection{Assembly}
+
+The structure \texttt{GeometricInput} contains the following propositions:
+the resolution is smooth and compact; its blowdown is proper and is a
+diffeomorphism over the regular locus; it carries a torsion-free
+$\SpinSeven$ structure; the cohomological data satisfy the Massey pipeline;
+the covering action satisfies the hypotheses of Armstrong's theorem; the
+fibrewise resolution preserves the fundamental group; the holonomy belongs
+to the four alternatives above; the three proper alternatives are
+K\"ahler; compact K\"ahler manifolds are formal; and formality forces zero
+to belong to every defined Massey product.  These propositions are exactly
+the geometric, topological, and cohomological results established in the
+body or supplied by the cited theorems.
+
+For every value $D$ of \texttt{GeometricInput}, the theorem
+\texttt{verified\_conclusion} produces the conjunction that the resolved
+space is smooth, compact, and simply connected; the blowdown is proper and
+is a diffeomorphism over the regular locus; the torsion-free structure has
+full holonomy $\SpinSeven$; and the full Massey coset excludes zero, so the
+resolved space is nonformal.  This is the formalized logical assembly of
+Theorem~\ref{thm:main}.
+
+\begin{thebibliography}{99}
+\bibitem{Armstrong}M.~A. Armstrong,
+\emph{The fundamental group of the orbit space of a discontinuous group},
+Proc. Cambridge Philos. Soc. \textbf{64} (1968), 299--301.
+\bibitem{BG}A.~K. Bousfield and V.~K.~A.~M. Gugenheim,
+\emph{On PL de Rham theory and rational homotopy type},
+Mem. Amer. Math. Soc. \textbf{8} (1976), no.~179.
+\bibitem{BredonSheaf}G.~E. Bredon,
+\emph{Sheaf Theory}, second ed., Graduate Texts in Mathematics 170,
+Springer, New York, 1997.
+\bibitem{BredonGroup}G.~E. Bredon,
+\emph{Introduction to Compact Transformation Groups}, Pure and Applied
+Mathematics 46, Academic Press, New York--London, 1972.
+\bibitem{DGMS}P.~Deligne, P.~Griffiths, J.~Morgan, and D.~Sullivan,
+\emph{Real homotopy theory of K\"ahler manifolds},
+Invent. Math. \textbf{29} (1975), 245--274.
+\bibitem{Dupont}J.~L. Dupont,
+\emph{Curvature and Characteristic Classes}, Lecture Notes in Mathematics
+640, Springer, Berlin, 1978.
+\bibitem{Fulton}W.~Fulton,
+\emph{Introduction to Toric Varieties}, Annals of Mathematics Studies 131,
+Princeton University Press, Princeton, 1993.
+\bibitem{Illman}S.~Illman,
+\emph{The equivariant triangulation theorem for actions of compact Lie
+groups}, Math. Ann. \textbf{262} (1983), 487--501.
+\bibitem{Hirsch}M.~W. Hirsch,
+\emph{Differential Topology}, Graduate Texts in Mathematics 33,
+Springer, New York, 1976.
+\bibitem{JoyceBook}D.~D. Joyce,
+\emph{Compact Manifolds with Special Holonomy}, Oxford Mathematical
+Monographs, Oxford University Press, 2000.
+\bibitem{MM}L.~Mart\'in--Merch\'an,
+\emph{Compact holonomy $G_2$ manifolds need not be formal},
+Geom. Topol. \textbf{30} (2026), 1109--1127;
+doi:10.2140/gt.2026.30.1109.
+\bibitem{Wang}M.~Y. Wang,
+\emph{Parallel spinors and parallel forms},
+Ann. Global Anal. Geom. \textbf{7} (1989), 59--68;
+doi:10.1007/BF00137402.
+\end{thebibliography}
+\end{document}
